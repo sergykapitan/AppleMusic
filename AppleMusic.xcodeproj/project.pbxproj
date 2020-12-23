@@ -16,6 +16,7 @@
 		8C551A4C2593AD0100B84C69 /* MainViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C551A4B2593AD0100B84C69 /* MainViewCode.swift */; };
 		8C551A4F2593B0A400B84C69 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C551A4E2593B0A400B84C69 /* Extentions.swift */; };
 		8C551A542593B2DB00B84C69 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C551A532593B2DB00B84C69 /* Constant.swift */; };
+		8C551A572593C5E500B84C69 /* HistoryViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C551A562593C5E500B84C69 /* HistoryViewCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8C551A4B2593AD0100B84C69 /* MainViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCode.swift; sourceTree = "<group>"; };
 		8C551A4E2593B0A400B84C69 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		8C551A532593B2DB00B84C69 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		8C551A562593C5E500B84C69 /* HistoryViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				8C551A2E2593974D00B84C69 /* MainViewController.swift */,
 				8C551A4B2593AD0100B84C69 /* MainViewCode.swift */,
 				8C551A452593A11400B84C69 /* HistoryViewController.swift */,
+				8C551A562593C5E500B84C69 /* HistoryViewCode.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C551A572593C5E500B84C69 /* HistoryViewCode.swift in Sources */,
 				8C551A542593B2DB00B84C69 /* Constant.swift in Sources */,
 				8C551A2F2593974D00B84C69 /* MainViewController.swift in Sources */,
 				8C551A2B2593974D00B84C69 /* AppDelegate.swift in Sources */,

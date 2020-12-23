@@ -9,11 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var shareView = MainViewCode()
+    
     
     //MARK: - LifeCicle
     override func loadView() {
-        view = shareView
+        view = MainViewCode()
     }
     
     override func viewDidLoad() {

@@ -1,5 +1,5 @@
 //
-//  MainViewCode.swift
+//  HistoryViewCode.swift
 //  AppleMusic
 //
 //  Created by Sergey on 23.12.2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewCode: UIView {
+final class HistoryViewCode: UIView {
     
     //MARK: - First layer in TopView
     
@@ -20,19 +20,15 @@ final class MainViewCode: UIView {
         view.clipsToBounds = true
             return view
         }()
-    let searchBar: UISearchBar = {
-        let  searchBar = UISearchBar()
-      //  searchBar.translatesAutoresizingMaskIntoConstraints = false
-        return searchBar
-    }()
+    
     //MARK - initial
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         createCardViewLayer()
-        createSearchBar()
     
     }
+    
     //MARK: - constraint First Layer
     
     func createCardViewLayer() {
@@ -40,16 +36,8 @@ final class MainViewCode: UIView {
         cardView.fillSuperview()
             
     }
-    //MARK: - constraint First Layer
-    
-    func createSearchBar() {
-        cardView.addSubview(searchBar)
-        searchBar.anchor(top: cardView.topAnchor, left: cardView.leftAnchor, right: cardView.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingRight: 10)
-       
-    }
-    
-  
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
