@@ -20,15 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let mainViewController = MainViewController()
-        mainViewController.tabBarItem = UITabBarItem(title: "Main", image: UIImage(named: "music"), tag: 1)
+//        let mainViewController = MainViewController()
+//        mainViewController.tabBarItem = UITabBarItem(title: "Main", image: UIImage(named: "music"), tag: 1)
 
-        let hystoryViewController = HistoryViewController()
-        hystoryViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "historycircle"), tag: 2)
+//        let hystoryViewController = HistoryViewController()
+//        hystoryViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "historycircle"), tag: 2)
         
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [mainViewController,hystoryViewController]
-        window?.rootViewController = tabBarController
+        
+     //   let tabBarController = UITabBarController()
+     //   tabBarController.viewControllers = [mainViewController,hystoryViewController]
+        window?.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
         
     }
