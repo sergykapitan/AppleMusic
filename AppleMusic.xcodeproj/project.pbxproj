@@ -95,7 +95,6 @@
 		8C551A3F25939D7200B84C69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8C4AEF1B2594A3B400F8F772 /* MainTabBarController.swift */,
 				8C4AEF2A2594BC1100F8F772 /* SearchCollectionViewController.swift */,
 				8C4AEF232594B62200F8F772 /* SearchCollectionViewCell.swift */,
 				8C551A4B2593AD0100B84C69 /* SearchViewCode.swift */,
@@ -117,6 +116,7 @@
 			children = (
 				8C551A2A2593974D00B84C69 /* AppDelegate.swift */,
 				8C551A2C2593974D00B84C69 /* SceneDelegate.swift */,
+				8C4AEF1B2594A3B400F8F772 /* MainTabBarController.swift */,
 				8C551A382593974E00B84C69 /* Info.plist */,
 			);
 			path = App;

@@ -22,21 +22,21 @@ final class MainViewModel: MainViewModelProtocol {
  
     func startFetch() {
         // start loading
-        updateViewData?(.loading(ViewData.Data(icon: "",
-                                               title: "",
-                                               description: "")))
+        updateViewData?(.loading(ViewData.Data(artistName: "",
+                                               collectionName: "",
+                                               artworkUrl60: "")))
             print("start loading")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [ weak self] in
-            self?.updateViewData?(.success(ViewData.Data(icon: "succes",
-                                                         title: "good",
-                                                         description: "Very Good")))
+            self?.updateViewData?(.success(ViewData.Data(artistName: "",
+                                                         collectionName: "",
+                                                         artworkUrl60: "")))
             print("start succes")
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [ weak self] in
-            self?.updateViewData?(.failure(ViewData.Data(icon: "failure",
-                                                         title: "nogood",
-                                                         description: "Bad Good")))
+            self?.updateViewData?(.failure(ViewData.Data(artistName: "fail",
+                                                         collectionName: "fail",
+                                                         artworkUrl60: "fail")))
             print("start failure")
         }
     }

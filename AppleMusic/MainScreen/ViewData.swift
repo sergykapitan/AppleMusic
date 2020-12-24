@@ -14,10 +14,15 @@ enum ViewData {
     case success(Data)
     case failure(Data)
     
-    struct Data {
-        
-        let icon: String?
-        let title: String?
-        let description: String?
+    
+    struct SearchResponce: Decodable {
+        var resultCount: Int?
+        var results: [Data]
+    }
+    
+    struct Data: Decodable {
+        let artistName: String?
+        let collectionName: String?
+        let artworkUrl60: String?
     }
 }

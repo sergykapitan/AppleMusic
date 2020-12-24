@@ -13,6 +13,7 @@ class SearchCollectionViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     var delegateNetworkServise: NetworkingProtocol?
     
+    var tracks = [ViewData.Data]()
     
     override func loadView() {
         super.loadView()
@@ -59,12 +60,14 @@ extension SearchCollectionViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return tracks.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseID, for: indexPath) as! SearchCollectionViewCell
-        cell.textLabel.text = String(indexPath.row + 1)
+        let track = tracks[indexPath.row]
+        cell.textLabel.text = track.artistName
+            //String(indexPath.row + 1)
         return cell
     }
 }
@@ -84,17 +87,6 @@ extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
 
         return CGSize(width: collectionView.bounds.size.width - 16, height: 120)
     }
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 15
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 15
-//    }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -105,10 +97,22 @@ extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
 extension SearchCollectionViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        
         delegateNetworkServise?.request(for: searchText, complation: { [ weak self ](data) in
+            
+            let decoder = JSONDecoder()
+            do {
+                let object = try decoder.decode( ViewData.SearchResponce.self, from: data)
+                print("object = ", object)
+                self?.tracks = object.results
+                self?.collectionView.reloadData()
+                
+            } catch let jsonError {
+                print("Failed to decode JSON" , jsonError)
+            }
+            
             let someString = String(data: data , encoding: .utf8)
-            print(someString)
+            print(someString!)
         })
     }
 }

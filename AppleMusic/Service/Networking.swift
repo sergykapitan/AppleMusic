@@ -52,6 +52,7 @@ class NetworkServise: NetworkingProtocol {
         components.path = Constants.path
         components.queryItems = [
             URLQueryItem(name: "term", value: searchText),
+            URLQueryItem(name: "limit", value: "10")
         ]
         return components.url!
     }
