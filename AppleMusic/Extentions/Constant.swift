@@ -15,4 +15,9 @@ struct Constants {
     static let searchImage = UIImage(named: "search")
     static let reuseID = "reuseIdentifier"
     
+    static let scheme = "https"
+    static let host = "itunes.apple.com"
+    static let path = "/search" 
+   
+      //https://itunes.apple.com/search?term=jack+johnson
 }

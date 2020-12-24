@@ -11,7 +11,9 @@ class SearchCollectionViewController: UIViewController {
 
     weak var collectionView: UICollectionView!
     let searchController = UISearchController(searchResultsController: nil)
-
+    var delegateNetworkServise: NetworkingProtocol?
+    
+    
     override func loadView() {
         super.loadView()
 
@@ -29,8 +31,10 @@ class SearchCollectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         setupSearchBar()
+        
+        delegateNetworkServise = NetworkServise()
         
         self.collectionView.backgroundColor = .white
         self.collectionView.dataSource = self
@@ -99,7 +103,12 @@ extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 extension SearchCollectionViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
+        delegateNetworkServise?.request(for: searchText, complation: { [ weak self ](data) in
+            let someString = String(data: data , encoding: .utf8)
+            print(someString)
+        })
     }
 }
