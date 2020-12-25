@@ -7,22 +7,43 @@
 
 import Foundation
 
-enum ViewData {
+
+
+
+
+
+
+
+struct ViewData: Codable {
     
-    case initial
-    case loading(Data)
-    case success(Data)
-    case failure(Data)
+    var resultCount: Int?
+    var results: [Data] = [Data]()
     
-    
-    struct SearchResponce: Decodable {
-        var resultCount: Int?
-        var results: [Data]
-    }
-    
-    struct Data: Decodable {
-        let artistName: String?
-        let collectionName: String?
-        let artworkUrl60: String?
-    }
 }
+
+
+struct Data: Codable, Equatable {
+    let artistName: String?
+    let collectionName: String?
+    let artworkUrl60: String?
+    
+}
+
+    
+//    static func == (lhs: Photo, rhs: Photo) -> Bool {
+//        return lhs.farm == rhs.farm && lhs.secret == rhs.secret && lhs.server == rhs.server && lhs.id == rhs.id
+//    }
+
+
+
+//    struct ViewData: Codable {
+//        var resultCount: Int?
+//        var results: [Data]
+//    }
+//
+//    struct Data: Codable {
+//        let artistName: String?
+//        let collectionName: String?
+//        let artworkUrl60: String?
+//    }
+
