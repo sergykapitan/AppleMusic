@@ -28,7 +28,8 @@ class NetworkServise: NetworkingProtocol {
             guard let data = data else { return }
             
             let decoder = JSONDecoder()
-            
+            let someString = String(data: data, encoding: .utf8)
+            print(someString!)
             do {
                 let object = try decoder.decode(ViewData.self, from: data)
                 completion(.success(object))
@@ -49,7 +50,8 @@ class NetworkServise: NetworkingProtocol {
         components.path = Constants.path
         components.queryItems = [
             URLQueryItem(name: "term", value: searchText),
-            URLQueryItem(name: "limit", value: "50")
+            URLQueryItem(name: "limit", value: "50"),
+            URLQueryItem(name: "entity", value: "album")
         ]
         return components.url!
     }

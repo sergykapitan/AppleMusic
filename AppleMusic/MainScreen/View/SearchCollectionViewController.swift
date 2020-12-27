@@ -26,22 +26,21 @@ class SearchCollectionViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
     // MARK: - LifiCicle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     override func loadView() {
         super.loadView()
         view = searchView
-    
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        
-        
-        
         setupMainView()
         setupSearchBar()
 
@@ -64,9 +63,7 @@ class SearchCollectionViewController: UIViewController {
         viewModel.fetchAlbums(searchText: searchText)
 
     }
-    @objc private func refreshAlbumList() {
-        makeReguest(searchText: viewModel.lastRequestName)
-    }
+   
     private func stopSpiners() {
         searchView.hideSpinner(withDelay: 0.2)
         refreshControl.endRefreshing()
@@ -77,6 +74,11 @@ class SearchCollectionViewController: UIViewController {
         present(ac, animated: true)
     }
     
+    //MARK: - Selectors
+    @objc private func refreshAlbumList() {
+           makeReguest(searchText: viewModel.lastRequestName)
+       }
+
 }
 
 //MARK: - MainViewModelProtocol

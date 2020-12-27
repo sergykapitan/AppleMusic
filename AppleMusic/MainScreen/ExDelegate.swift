@@ -11,5 +11,14 @@ extension SearchCollectionViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row + 1)
+        if let cell = collectionView.cellForItem(at: indexPath) as? SearchCollectionViewCell {
+            let detail = DetailViewController()
+           // detail.
+            navigationController?.pushViewController(detail, animated: true)
+            
+        } else {
+            
+        }
+
     }
 }
