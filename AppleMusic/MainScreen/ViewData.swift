@@ -7,22 +7,19 @@
 
 import Foundation
 
-enum ViewData {
+struct ViewData: Codable {
     
-    case initial
-    case loading(Data)
-    case success(Data)
-    case failure(Data)
+    var resultCount: Int?
+    var results: [Data] = [Data]()
     
-    
-    struct SearchResponce: Decodable {
-        var resultCount: Int?
-        var results: [Data]
-    }
-    
-    struct Data: Decodable {
-        let artistName: String?
-        let collectionName: String?
-        let artworkUrl60: String?
-    }
 }
+
+struct Data: Codable, Equatable {
+    
+    let artistName: String?
+    let collectionName: String?
+    let artworkUrl60: String?
+    let artworkUrl100: String?
+    
+}
+

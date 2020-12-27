@@ -7,39 +7,41 @@
 
 import Foundation
 
-protocol MainViewModelProtocol {
-    var updateViewData: ((ViewData) -> ())? { get set }
-    func startFetch()
+protocol MainViewModelProtocol: class {
+    func fetchingResult(_ isNeedToUpdateView: Bool, errorDescription: String?)
 }
 
-final class MainViewModel: MainViewModelProtocol {
+final class MainViewModel {
     
-    public var updateViewData: ((ViewData) -> ())?
+    private let utilityQueue = DispatchQueue.global(qos: .utility)
     
-    init() {
-        updateViewData?(.initial)
+    var model: ViewData = ViewData()
+    weak var delegate: MainViewModelProtocol?
+    private var delegateNetworkServise: NetworkingProtocol?
+   
+    var lastRequestName: String = "johnny cash"
+  
+    init(model: ViewData) {
+        self.model = model
     }
+    
+    func fetchAlbums(searchText: String) {
+        lastRequestName = searchText
+        delegateNetworkServise = NetworkServise()
+        delegateNetworkServise?.request(for: searchText, completion: { (result) in
+        switch result {
+            case .success(let data):
+                if self.model.results != data.results {
+                 self.model = data
+                    self.delegate?.fetchingResult(true, errorDescription: nil)
+                 } else {
+                    self.delegate?.fetchingResult(false, errorDescription: nil )
+                }
+            case .failure(let error):
+                self.delegate?.fetchingResult(true, errorDescription: error.localizedDescription)
+            }
+        })
  
-    func startFetch() {
-        // start loading
-        updateViewData?(.loading(ViewData.Data(artistName: "",
-                                               collectionName: "",
-                                               artworkUrl60: "")))
-            print("start loading")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [ weak self] in
-            self?.updateViewData?(.success(ViewData.Data(artistName: "",
-                                                         collectionName: "",
-                                                         artworkUrl60: "")))
-            print("start succes")
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [ weak self] in
-            self?.updateViewData?(.failure(ViewData.Data(artistName: "fail",
-                                                         collectionName: "fail",
-                                                         artworkUrl60: "fail")))
-            print("start failure")
-        }
     }
-    
     
 }
