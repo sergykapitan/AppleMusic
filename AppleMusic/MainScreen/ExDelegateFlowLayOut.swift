@@ -33,19 +33,13 @@ extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
       
       var height: CGFloat = UIScreen.main.bounds.width * 0.35
-//        if let isEmpty = viewModel.model.results.isEmpty, isEmpty {
-//        height = 50
-//      }
+
       return CGSize(width: collectionView.bounds.width * 0.95, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-      
-//      if isSearchBarEmpty && !history.isEmpty {
-//        return CGSize(width: collectionView.frame.width, height: 50.0)
-//      }
       return CGSize.zero
     }
 }
