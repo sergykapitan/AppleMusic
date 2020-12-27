@@ -17,7 +17,7 @@ final class MainViewModel {
     
     var model: ViewData = ViewData()
     weak var delegate: MainViewModelProtocol?
-    var delegateNetworkServise: NetworkingProtocol?
+    private var delegateNetworkServise: NetworkingProtocol?
    
     var lastRequestName: String = "johnny cash"
   
@@ -32,31 +32,16 @@ final class MainViewModel {
         switch result {
             case .success(let data):
                 if self.model.results != data.results {
-                    self.model = data
+                 self.model = data
                     self.delegate?.fetchingResult(true, errorDescription: nil)
-                } else {
+                 } else {
                     self.delegate?.fetchingResult(false, errorDescription: nil )
                 }
-            case .failure(let data2):
-                
-                print(data2.localizedDescription)
-                self.delegate?.fetchingResult(true, errorDescription: nil)
+            case .failure(let error):
+                self.delegate?.fetchingResult(true, errorDescription: error.localizedDescription)
             }
         })
  
     }
     
-//    func loadImage(farm_id: String, server_id: String, id: String, secret: String, completion: @escaping (Data?) -> ()) {
-//        utilityQueue.async {
-//            guard let url = URL(string: "https://farm\(farm_id).staticflickr.com/\(server_id)/\(id)_\(secret).jpg") else {
-//                //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
-//                completion(nil)
-//                return
-//            }
-//            
-//            guard let data = try? Data(contentsOf: url) else { return }
-//            completion(data)
-//        }
-//    }
-//    
 }

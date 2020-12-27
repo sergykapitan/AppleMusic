@@ -10,17 +10,15 @@ import UIKit
 
 extension UIView {
     
-        func fillFull(for view: UIView, insets: UIEdgeInsets = .zero) {
-            view.addConstraints([
-                leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left),
-                topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
-                trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -insets.right),
-                bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -insets.bottom),
-            ])
-        }
-    
-
-    
+    func fillFull(for view: UIView, insets: UIEdgeInsets = .zero) {
+        view.addConstraints([
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left),
+            topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -insets.right),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -insets.bottom),
+        ])
+    }
+  
     func fillSuperview() {
         anchor(top: superview?.safeAreaLayoutGuide.topAnchor, left: superview?.leftAnchor, right: superview?.rightAnchor, bottom: superview?.safeAreaLayoutGuide.bottomAnchor, paddingTop: 10, paddingLeft: 10, paddingRight: 10, paddingBottom: 10)
     }

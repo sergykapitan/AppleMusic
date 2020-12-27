@@ -13,9 +13,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let firstViewModel = MainViewModel(model: ViewData())
-        
-        
-        
+   
         viewControllers = [
             generateViewController(rootViewController: SearchCollectionViewController(viewModel: firstViewModel), image: #imageLiteral(resourceName: "search") , title: "Search"),
             generateViewController(rootViewController: HistoryViewController(), image: #imageLiteral(resourceName: "history"), title: "History")
