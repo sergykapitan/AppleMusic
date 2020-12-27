@@ -20,8 +20,6 @@ extension SearchCollectionViewController: UICollectionViewDataSource {
         let model = viewModel.model.results.sorted{$0.artistName! < $1.artistName!}[indexPath.row]
         guard let url = URL(string: model.artworkUrl60 ?? "") else { return cell }
         cell.configureCell(albumName: model.collectionName ?? self.viewModel.lastRequestName, url: url)
-     //   cell.configureCell(albumName: model.artistName ?? self.viewModel.lastRequestName)
-        
         cell.hideSpinner(withDelay: 0.3)
         return cell
     }

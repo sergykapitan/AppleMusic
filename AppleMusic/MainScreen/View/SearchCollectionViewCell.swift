@@ -59,8 +59,15 @@ final class SearchCollectionViewCell: UICollectionViewCell {
     }
     
     private func initLayout() {
-        photoImage.anchor(top: contentView.topAnchor,left: contentView.leftAnchor,bottom: contentView.bottomAnchor,paddingTop: 5,paddingLeft: 5,paddingBottom: 5, width: contentView.frame.width / 3)
-        albumNameLabel.anchor(top: contentView.topAnchor, left: photoImage.rightAnchor,paddingTop: 5,paddingLeft: 5)
+        photoImage.anchor(top: contentView.topAnchor,
+                          left: contentView.leftAnchor,
+                          bottom: contentView.bottomAnchor,
+                          paddingTop: 5,
+                          paddingLeft: 5,
+                          paddingBottom: 5, width: contentView.frame.width / 3)
+        albumNameLabel.anchor(top: contentView.topAnchor,
+                              left: photoImage.rightAnchor,
+                              paddingTop: 5,paddingLeft: 5)
         
         NSLayoutConstraint.activate([
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
