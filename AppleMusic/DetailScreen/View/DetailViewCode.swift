@@ -22,17 +22,10 @@ final class DetailViewCode: UIView {
     private var stackVFirst: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
+        stack.distribution = .fill
         stack.axis = .vertical
-        stack.spacing = 16
-        return stack
-    }()
-    private var stackVSecond: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
-        stack.axis = .vertical
-        stack.spacing = 16
+        stack.alignment = .center
+        stack.spacing = 0
         return stack
     }()
     private var stackHFirst: UIStackView = {
@@ -47,8 +40,9 @@ final class DetailViewCode: UIView {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
+        stack.alignment = .center
         stack.axis = .horizontal
-        stack.spacing = 16
+        stack.spacing = 10
         return stack
     }()
     private var stackHTherd: UIStackView = {
@@ -56,14 +50,16 @@ final class DetailViewCode: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal
-        stack.spacing = 16
+        stack.spacing = 30
         return stack
     }()
     private let imageAlbum: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .gray
-        image.anchor( height: 200)
+        image.heightEqualToMultiplier(inView: image, multiplier: 1)
+        
+
         return image
     }()
    
@@ -81,51 +77,64 @@ final class DetailViewCode: UIView {
     }()
     private let labelTimestart: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "labelTimestart"
+        label.text = "00:00"
         label.textAlignment = .left
         return label
     }()
     private let labelTimestop: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .red
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "labelTimestop"
+        label.text = "--:--"
         label.textAlignment = .right
         return label
     }()
-    private let ArtistNameLabel:UILabel = {
+    private let trackTitleLabel:UILabel = {
         let label = UILabel()
-        label.backgroundColor = .cyan
-        label.text = "ArtistNameLabel"
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.textColor = .black
+        label.text = "Track Title"
         label.textAlignment = .center
         return label
     }()
-    private let AlbumNameLabel:UILabel = {
+    private let authorLabel:UILabel = {
         let label = UILabel()
-        label.text = "AlbumNameLabel"
-        label.backgroundColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 24)
+        label.textColor = .red
+        label.text = "Author"
         label.textAlignment = .center
         return label
     }()
     private let butttonPlay: UIButton = {
         let button  = UIButton()
+        button.setImage(UIImage(named: "pause"), for: .normal)
+        button.setTitleColor(UIColor.blue, for: .selected)
+        button.setImage(#imageLiteral(resourceName: "play"), for: .highlighted)
         return button
     }()
     private let butttonNextTrack: UIButton = {
         let button  = UIButton()
+        button.setImage(UIImage(named: "Right"), for: .normal)
+        button.setTitleColor(UIColor.blue, for: .highlighted)
+        button.anchor(width: 50 )
         return button
     }()
     private let butttonPrevireusTrack: UIButton = {
         let button  = UIButton()
+        button.setImage(UIImage(named: "Left"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "Add"), for: .highlighted)
+        button.anchor(width: 50 )
         return button
     }()
-    private let imageVolumeDown: UIImageView = {
+    private let imageVolumeMin: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .magenta
-        image.anchor(width: 40 ,height: 40)
+        image.image = UIImage(named: "IconMin")
+        image.anchor(height: 17)
         return image
     }()
     private let sliderVolume: UISlider = {
@@ -133,12 +142,19 @@ final class DetailViewCode: UIView {
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
-    private let imageVolumeUp: UIImageView = {
+    private let imageVolumeMax: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .magenta
-        image.anchor(width: 40 ,height: 40)
+        image.image = UIImage(named: "IconMax")
+        image.anchor(height: 17)
         return image
+    }()
+    
+    private let tableView: UIView = {
+        let table = UIView()
+        table.backgroundColor = .blue
+        table.anchor(height: 200)
+        return table
     }()
 
     
@@ -157,35 +173,23 @@ final class DetailViewCode: UIView {
     private func initUI() {
         backgroundColor = .white
         addSubview(cardView)
-
-        stackVFirst = UIStackView(arrangedSubviews: [imageAlbum,sliderSongPlay])
-        stackHFirst = UIStackView(arrangedSubviews: [labelTimestart,labelTimestop])
-        stackVSecond = UIStackView(arrangedSubviews: [ArtistNameLabel,AlbumNameLabel])
+        stackHTherd = UIStackView(arrangedSubviews: [imageVolumeMin,sliderVolume,imageVolumeMax])
         stackHSecond = UIStackView(arrangedSubviews: [butttonPrevireusTrack,butttonPlay,butttonNextTrack])
-        stackHTherd = UIStackView(arrangedSubviews: [imageVolumeDown,sliderVolume,imageVolumeUp])
-        
+        stackHFirst = UIStackView(arrangedSubviews: [labelTimestart,labelTimestop])
+        stackVFirst = UIStackView(arrangedSubviews: [imageAlbum,sliderSongPlay,stackHFirst,trackTitleLabel,authorLabel,tableView,stackHSecond,stackHTherd])
         stackVFirst.axis = .vertical
-        stackHFirst.axis = .horizontal
-        stackVSecond.axis = .vertical
-        stackHSecond.axis = .horizontal
-        stackHTherd.axis = .horizontal
-        
         cardView.addSubview(stackVFirst)
-        cardView.addSubview(stackHFirst)
-        cardView.addSubview(stackVSecond)
-        cardView.addSubview(stackHSecond)
-        cardView.addSubview(stackHTherd)
-        
     }
     
     private func initLayout() {
         cardView.fillSuperview()
-        stackVFirst.anchor(top: cardView.topAnchor,left: cardView.leftAnchor,right: cardView.rightAnchor,paddingTop: 10,paddingLeft: 10,paddingRight: 10)
-        stackHFirst.anchor(top:stackVFirst.bottomAnchor,left: cardView.leftAnchor,right: cardView.rightAnchor,paddingTop: 10,paddingLeft: 10,paddingRight: 10)
-        stackVSecond.anchor(top: stackHFirst.bottomAnchor, left: cardView.leftAnchor, right: cardView.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingRight: 10)
-        stackHSecond.anchor(top:stackVSecond.bottomAnchor,left:cardView.leftAnchor,right: cardView.rightAnchor,paddingTop: 5,paddingLeft: 10,paddingRight: 10)
-        stackHTherd.anchor(top: stackHSecond.bottomAnchor, left: cardView.leftAnchor, right: cardView.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingRight: 10)
+        stackVFirst.anchor(top: cardView.topAnchor,left: cardView.leftAnchor,right: cardView.rightAnchor,bottom: cardView.bottomAnchor,paddingTop: 10,paddingLeft: 10,paddingRight: 10,paddingBottom: 20)
+
      
+    }
+    func configureDetailView(trackTitle: String,author: String){
+        trackTitleLabel.text = trackTitle
+        authorLabel.text = author
     }
   
 }

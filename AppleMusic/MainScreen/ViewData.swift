@@ -11,15 +11,16 @@ struct ViewData: Codable {
     
     var resultCount: Int?
     var results: [Data] = [Data]()
-    
+    let cells: [Data]
 }
 
 struct Data: Codable, Equatable {
     
+    var trackName: String
     let artistName: String?
     let collectionName: String?
-    let artworkUrl60: String?
     let artworkUrl100: String?
+    var previewUrl: String?
     
 }
 

@@ -8,11 +8,19 @@
 import UIKit
 import SDWebImage
 
+//protocol TrackCellViewModel {
+//    var iconUrlString: String? { get }
+//    var trackName: String { get }
+//    var artistName: String { get }
+//    var collectionName: String { get }
+//    
+//}
+
 final class SearchCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Properties
     static var cellID: String { return String(describing: self) }
-    
+    var detailViewModel = DetailModel.init(cells: []) //SearchViewModel.init(cells: [])
     //MARK: - UI
     private let photoImage: UIImageView = {
         let imageView = UIImageView()
