@@ -26,7 +26,7 @@ class NetworkServise: NetworkingProtocol {
                 return
             }
             guard let data = data else { return }
-            
+          //  let someS = String(data: data, encoding: .utf8)
             let decoder = JSONDecoder()
             do {
                 let object = try decoder.decode(ViewData.self, from: data)
@@ -50,6 +50,7 @@ class NetworkServise: NetworkingProtocol {
             URLQueryItem(name: "term", value: searchText),
             URLQueryItem(name: "limit", value: "50"),
             URLQueryItem(name: "media", value: "music")
+           // URLQueryItem(name: "entity", value: "album")
         ]
         return components.url!
     }

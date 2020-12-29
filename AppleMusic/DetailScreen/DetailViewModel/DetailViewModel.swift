@@ -9,27 +9,22 @@ import Foundation
 import AVKit
 
 protocol DetailViewModelProtocol: class {
-    func fetchingResult(_ isNeedToUpdateView: Bool, errorDescription: String?)
+    func setUI(detailModel: TrackData)
 }
 
 final class DetailViewModel {
-    
-    private let utilityQueue = DispatchQueue.global(qos: .utility)
-    
-    var model: ViewData = ViewData()
-    var detailModel: DetailModel = DetailModel(cells: [])
-    
-    weak var delegate: DetailViewModelProtocol?
-   
-  
-    init(model: ViewData ) {
-        self.model = model
         
+    var detailModel: TrackData
+    weak var delegate: DetailViewModelProtocol?
+    
+    
+    init(model: TrackData) {
+        self.detailModel = model
     }
+
     
     func fetchTrack() {
-         print("DetailViewModel")
-        self.delegate?.fetchingResult(true, errorDescription: nil)
-               
+        self.delegate?.setUI(detailModel: detailModel)
     }
+   
 }

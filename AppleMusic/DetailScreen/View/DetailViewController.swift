@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import AVKit
 
 
 class DetailViewController: UIViewController {
@@ -15,6 +16,7 @@ class DetailViewController: UIViewController {
   
     let detailView = DetailViewCode()
     var viewModel: DetailViewModel
+    
     
     //MARK: - LifiCicle
     override func loadView() {
@@ -24,10 +26,13 @@ class DetailViewController: UIViewController {
     }
     override func viewDidLoad() {
             super.viewDidLoad()
+        viewModel.delegate = self
         tabBarController?.tabBar.isHidden = true
         viewModel.fetchTrack()
+        actionButton()
             
         }
+    
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -37,34 +42,33 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
 
     }
-//    func setTrack(viewModel: DetailViewModel) {
-//
-//        detailView.configureDetailView(trackTitle: , author: viewModel.artistName)
-//
-//
-//        guard let url = URL(string: viewModel.iconUrlString ?? "") else { return }
-//       // trackImageView.sd_setImage(with: url, completed: nil)
-//    }
+    //MARK: - Metods
+
     
+
+    func actionButton() {
+        detailView.butttonPlay.addTarget(self, action: #selector(playTrackSong), for: .touchUpInside)
+        
+    }
+    @objc func playTrackSong() {
+        if detailView.player.timeControlStatus == .paused {
+            detailView.player.play()
+            detailView.butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        } else {
+            detailView.player.pause()
+            detailView.butttonPlay.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+        }
+    }
     
+
 }
 extension DetailViewController: DetailViewModelProtocol {
     
-    func fetchingResult(_ isNeedToUpdateView: Bool, errorDescription: String?) {
-        guard errorDescription == nil else {
-            DispatchQueue.main.async {
-             
-            }
-            return }
-        if isNeedToUpdateView {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-              //  setTrack(viewModel: )
-       
-            }
-        } else {
-            DispatchQueue.main.async {
-                
-            }
-        }
+    func setUI(detailModel: TrackData) {
+        let string600 = self.viewModel.detailModel.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+        guard let url = URL(string: string600 ?? "") else { return }
+        detailView.configureDetailView(trackTitle: detailModel.trackName, author: detailModel.artistName ?? "", url: url, previewUrl: detailModel.previewUrl ?? "")
     }
+    
+    
 }

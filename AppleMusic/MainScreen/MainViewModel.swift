@@ -44,4 +44,14 @@ final class MainViewModel {
  
     }
     
+//    func cellViewModel(from track: TrackData) -> DetailModel.Cell {
+//    
+//        return DetailModel.Cell.init(iconUrlString: track.artistName,
+//                                     trackName: track.artistName,
+//                                     collectionName: track.collectionName ?? "",
+//                                     artistName: track.artistName ?? "",
+//                                     previewUrl: track.artistName
+//        
+//    }
+    
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SDWebImage
+import AVKit
 
 final class DetailViewCode: UIView {
     
@@ -57,7 +59,8 @@ final class DetailViewCode: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .gray
-        image.heightEqualToMultiplier(inView: image, multiplier: 1)
+        image.anchor( height: 300)
+        //image.heightEqualToMultiplier(inView: image, multiplier: 1 / 2)
         
 
         return image
@@ -109,10 +112,10 @@ final class DetailViewCode: UIView {
         label.textAlignment = .center
         return label
     }()
-    private let butttonPlay: UIButton = {
+     let butttonPlay: UIButton = {
         let button  = UIButton()
         button.setImage(UIImage(named: "pause"), for: .normal)
-        button.setTitleColor(UIColor.blue, for: .selected)
+       // button.addTarget(self, action: #selector(playTrackSong), for: .touchUpInside)
         button.setImage(#imageLiteral(resourceName: "play"), for: .highlighted)
         return button
     }()
@@ -152,9 +155,14 @@ final class DetailViewCode: UIView {
     
     private let tableView: UIView = {
         let table = UIView()
-        table.backgroundColor = .blue
-        table.anchor(height: 200)
+      //  table.backgroundColor = .blue
+        table.anchor(height: 80)
         return table
+    }()
+    let player: AVPlayer = {
+        let player = AVPlayer()
+        player.automaticallyWaitsToMinimizeStalling = false
+        return player
     }()
 
     
@@ -187,9 +195,31 @@ final class DetailViewCode: UIView {
 
      
     }
-    func configureDetailView(trackTitle: String,author: String){
+    func configureDetailView(trackTitle: String,author: String,url: URL,previewUrl: String){
         trackTitleLabel.text = trackTitle
         authorLabel.text = author
+        imageAlbum.sd_setImage(with: url, completed: nil)
+        playTrack(previewUrl: previewUrl )
+        
     }
+    //MARK: - Selectors
+    
+//    @objc func playTrackSong() {
+//        if player.timeControlStatus == .paused {
+//            player.play()
+//            butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+//        } else {
+//            player.pause()
+//            butttonPlay.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+//        }
+//    }
+//
+         func playTrack(previewUrl: String) {
+            guard let url = URL(string: previewUrl) else { return }
+            let playerItem = AVPlayerItem(url: url)
+            player.replaceCurrentItem(with: playerItem)
+            player.play()
+
+        }
   
 }

@@ -9,12 +9,19 @@ import Foundation
 
 struct ViewData: Codable {
     
+//    case initial
+//    case loading
+//    case success
+//    case failure
+    
     var resultCount: Int?
-    var results: [Data] = [Data]()
-    let cells: [Data]
+    var results: [TrackData] = [TrackData]()
+    
+    
+    
 }
 
-struct Data: Codable, Equatable {
+struct TrackData: Codable, Equatable {
     
     var trackName: String
     let artistName: String?

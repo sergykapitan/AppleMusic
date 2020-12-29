@@ -13,15 +13,13 @@ extension SearchCollectionViewController: UICollectionViewDelegate {
         print(indexPath.row + 1)
         if let cell = collectionView.cellForItem(at: indexPath) as? SearchCollectionViewCell {
             
-            private var searchViewModel = SearchViewModel.init(cells: [])
-            var detailModell: ViewData = ViewData
-            //let cellViewModel = detailModell.cells[indexPath.row]
-
-            let detailModel = DetailViewModel(model: viewModel.model)
-            print("detailModel = \(cellViewModel)" )
-            let detail = DetailViewController(viewModel: detailModel)
-            
+                let cells = viewModel.model.results[indexPath.row]
+                let detailVM = DetailViewModel(model: cells)
+                let detail = DetailViewController(viewModel: detailVM)
+                            
             navigationController?.pushViewController(detail, animated: true)
+
+            
             
         } else {
             

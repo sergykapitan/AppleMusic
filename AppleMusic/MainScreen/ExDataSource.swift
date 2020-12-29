@@ -17,7 +17,7 @@ extension SearchCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseID, for: indexPath) as? SearchCollectionViewCell else { return SearchCollectionViewCell()}
         cell.showSpinner()
-        let model = viewModel.model.results.sorted(by: {$0.artistName! < $1.artistName!})[indexPath.row]
+        let model = viewModel.model.results[indexPath.row]//sorted(by: {$0.collectionName ?? "" < $1.collectionName ?? ""})[indexPath.row]
         guard let url = URL(string: model.artworkUrl100 ?? "") else { return cell }
         cell.configureCell(albumName: model.collectionName ?? self.viewModel.lastRequestName, url: url, artistName: model.artistName ?? "")
         cell.hideSpinner(withDelay: 0.5)
