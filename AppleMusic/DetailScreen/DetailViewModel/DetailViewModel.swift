@@ -8,23 +8,46 @@
 import Foundation
 import AVKit
 
-protocol DetailViewModelProtocol: class {
-    func setUI(detailModel: TrackData)
+
+protocol DetailViewModelProtocol {
+    
+    var updateViewData:((TrackData) ->())? { get set }
 }
 
-final class DetailViewModel {
-        
-    var detailModel: TrackData
-    weak var delegate: DetailViewModelProtocol?
+final class DetailViewModel: DetailViewModelProtocol{
     
     
-    init(model: TrackData) {
-        self.detailModel = model
+    var updateViewData: ((TrackData) -> ())?
+    var detailModel: ViewData.Track {
+        didSet{
+            print("detailModel= \(detailModel)")
+        }
+        willSet {
+            print("detailModel= \(detailModel)")
+        }
     }
 
-    
+    init(detailModel: ViewData.Track) {
+        
+        self.detailModel = detailModel
+        updateViewData?(.initial)
+    }
+  
+   
+    func getData(detailModel:ViewData.Track) {
+        self.detailModel = detailModel
+    }
+ 
     func fetchTrack() {
-        self.delegate?.setUI(detailModel: detailModel)
+        self.updateViewData?(.success(reversData(viewData: self.detailModel)))
+    }
+    
+    func reversData(viewData:ViewData.Track) -> TrackData.TrackOne {
+        return TrackData.TrackOne(trackName: viewData.trackName,
+                                  artistName: viewData.artistName,
+                                  collectionName: viewData.collectionName,
+                                  artworkUrl100: viewData.artworkUrl100,
+                                  previewUrl: viewData.previewUrl)
     }
    
 }

@@ -55,17 +55,13 @@ final class DetailViewCode: UIView {
         stack.spacing = 30
         return stack
     }()
-    private let imageAlbum: UIImageView = {
+     let imageAlbum: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .gray
         image.anchor( height: 300)
-        //image.heightEqualToMultiplier(inView: image, multiplier: 1 / 2)
-        
-
         return image
     }()
-   
     
     private let buttunA: UIButton = {
         let button = UIButton()
@@ -73,12 +69,12 @@ final class DetailViewCode: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    private let sliderSongPlay: UISlider = {
+     let sliderSongPlay: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
-    private let labelTimestart: UILabel = {
+     let labelTimestart: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
@@ -87,7 +83,7 @@ final class DetailViewCode: UIView {
         label.textAlignment = .left
         return label
     }()
-    private let labelTimestop: UILabel = {
+     let labelTimestop: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
@@ -119,17 +115,17 @@ final class DetailViewCode: UIView {
         button.setImage(#imageLiteral(resourceName: "play"), for: .highlighted)
         return button
     }()
-    private let butttonNextTrack: UIButton = {
+     let butttonNextTrack: UIButton = {
         let button  = UIButton()
         button.setImage(UIImage(named: "Right"), for: .normal)
-        button.setTitleColor(UIColor.blue, for: .highlighted)
+        button.setImage(#imageLiteral(resourceName: "Knob"), for: .highlighted)
         button.anchor(width: 50 )
         return button
     }()
-    private let butttonPrevireusTrack: UIButton = {
+     let butttonPrevireusTrack: UIButton = {
         let button  = UIButton()
         button.setImage(UIImage(named: "Left"), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "Add"), for: .highlighted)
+        button.setImage(#imageLiteral(resourceName: "Knob"), for: .highlighted)
         button.anchor(width: 50 )
         return button
     }()
@@ -140,9 +136,10 @@ final class DetailViewCode: UIView {
         image.anchor(height: 17)
         return image
     }()
-    private let sliderVolume: UISlider = {
+     let sliderVolume: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.value = 50
         return slider
     }()
     private let imageVolumeMax: UIImageView = {
@@ -202,18 +199,6 @@ final class DetailViewCode: UIView {
         playTrack(previewUrl: previewUrl )
         
     }
-    //MARK: - Selectors
-    
-//    @objc func playTrackSong() {
-//        if player.timeControlStatus == .paused {
-//            player.play()
-//            butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
-//        } else {
-//            player.pause()
-//            butttonPlay.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-//        }
-//    }
-//
          func playTrack(previewUrl: String) {
             guard let url = URL(string: previewUrl) else { return }
             let playerItem = AVPlayerItem(url: url)

@@ -7,51 +7,37 @@
 
 import Foundation
 
-protocol MainViewModelProtocol: class {
-    func fetchingResult(_ isNeedToUpdateView: Bool, errorDescription: String?)
+protocol MainViewModelProtocol {
+    
+    var updateViewData:((ViewData) ->())? { get set }
+    func startFetch(searchText: String)
+    var lastRequestName: String { get set}
 }
 
-final class MainViewModel {
+final class MainViewModel: MainViewModelProtocol {
     
-    private let utilityQueue = DispatchQueue.global(qos: .utility)
+    var updateViewData: ((ViewData) -> ())?
+    var delegateNetServece: NetworkingProtocol?
     
-    var model: ViewData = ViewData()
-    weak var delegate: MainViewModelProtocol?
-    private var delegateNetworkServise: NetworkingProtocol?
-   
-    var lastRequestName: String = "johnny cash"
-  
-    init(model: ViewData) {
-        self.model = model
+    var lastRequestName = "Johnny"
+    
+    init() {
+        updateViewData?(.initial)
     }
     
-    func fetchAlbums(searchText: String) {
-        lastRequestName = searchText
-        delegateNetworkServise = NetworkServise()
-        delegateNetworkServise?.request(for: searchText, completion: { (result) in
-        switch result {
+    
+    func startFetch(searchText: String) {
+        
+        delegateNetServece = NetworkServise()
+        delegateNetServece?.request(for: searchText, completion: { (result) in
+            switch result {
             case .success(let data):
-                if self.model.results != data.results {
-                 self.model = data
-                    self.delegate?.fetchingResult(true, errorDescription: nil)
-                 } else {
-                    self.delegate?.fetchingResult(false, errorDescription: nil )
-                }
+                self.lastRequestName = searchText
+                self.updateViewData?(.success(data))
             case .failure(let error):
-                self.delegate?.fetchingResult(true, errorDescription: error.localizedDescription)
+                print(error.localizedDescription)
             }
         })
- 
+  
     }
-    
-//    func cellViewModel(from track: TrackData) -> DetailModel.Cell {
-//    
-//        return DetailModel.Cell.init(iconUrlString: track.artistName,
-//                                     trackName: track.artistName,
-//                                     collectionName: track.collectionName ?? "",
-//                                     artistName: track.artistName ?? "",
-//                                     previewUrl: track.artistName
-//        
-//    }
-    
 }

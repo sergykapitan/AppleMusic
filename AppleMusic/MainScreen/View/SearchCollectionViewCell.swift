@@ -10,10 +10,8 @@ import SDWebImage
 
 
 final class SearchCollectionViewCell: UICollectionViewCell {
-    
+
     //MARK: - Properties
-   // static var cellID: String { return String(describing: self) }
-   // var detailViewModel = DetailModel.init(cells: [])
     //MARK: - UI
     private let photoImage: UIImageView = {
         let imageView = UIImageView()
@@ -113,5 +111,6 @@ final class SearchCollectionViewCell: UICollectionViewCell {
         artistNameLabel.text = artistName
         albumNameLabel.text = albumName
     }
+  
 }
 

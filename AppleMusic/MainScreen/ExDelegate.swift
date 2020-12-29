@@ -11,19 +11,20 @@ extension SearchCollectionViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row + 1)
-        if let cell = collectionView.cellForItem(at: indexPath) as? SearchCollectionViewCell {
-            
-                let cells = viewModel.model.results[indexPath.row]
-                let detailVM = DetailViewModel(model: cells)
-                let detail = DetailViewController(viewModel: detailVM)
-                            
-            navigationController?.pushViewController(detail, animated: true)
-
-            
-            
-        } else {
-            
-        }
+            switch viewDataCell {
+            case .success(let success):
+                let cells = success.results[indexPath.row]
+                let detailVC = DetailViewController()
+                detailVC.fetchD(detailModel: cells)
+                detailVC.delegate = self
+                navigationController?.pushViewController(detailVC, animated: true)
+            case .initial:
+                break
+            case .loading(_):
+                break
+            case .failure(_):
+                break
+            }
 
     }
 }

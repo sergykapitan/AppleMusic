@@ -9,13 +9,14 @@ import Foundation
 
 
 protocol NetworkingProtocol: class {
-    func request(for searchText: String, completion:  @escaping (Result<ViewData,Error>) -> ())
+    
+    func request(for searchText: String, completion:  @escaping (Result<ViewData.Data,Error>) -> ())
 }
 
 
 class NetworkServise: NetworkingProtocol {
  
-    func request(for searchText: String, completion: @escaping(Result<ViewData,Error>)->()) {
+    func request(for searchText: String, completion: @escaping(Result<ViewData.Data,Error>)->()) {
         
         let session = URLSession.shared
         let url = self.url(from: searchText)
@@ -29,7 +30,7 @@ class NetworkServise: NetworkingProtocol {
           //  let someS = String(data: data, encoding: .utf8)
             let decoder = JSONDecoder()
             do {
-                let object = try decoder.decode(ViewData.self, from: data)
+                let object = try decoder.decode(ViewData.Data.self, from: data)
                 completion(.success(object))
             } catch let jsonError {
                 completion(.failure(jsonError))

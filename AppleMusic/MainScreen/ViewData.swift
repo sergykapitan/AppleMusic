@@ -7,27 +7,49 @@
 
 import Foundation
 
-struct ViewData: Codable {
+enum ViewData {
     
-//    case initial
-//    case loading
-//    case success
-//    case failure
+    case initial
+    case loading(Data)
+    case success(Data)
+    case failure(Data)
     
-    var resultCount: Int?
-    var results: [TrackData] = [TrackData]()
-    
-    
+    struct  Data: Codable {
+        var resultCount: Int?
+        var results = [Track]()
+    }
+    struct Track: Codable, Equatable {
+            var trackName: String
+            let artistName: String?
+            let collectionName: String?
+            let artworkUrl100: String?
+            var previewUrl: String?
+            
+    }
     
 }
 
-struct TrackData: Codable, Equatable {
+enum ViewDataMy {
+    case initial
+    case loading(Data)
+    case success(Data)
+    case failure(Data)
     
-    var trackName: String
-    let artistName: String?
-    let collectionName: String?
-    let artworkUrl100: String?
-    var previewUrl: String?
+    struct  Data: Codable {
+        var resultCount: Int?
+        var results = [Track]()
+        
+        struct Track: Codable, Equatable {
+                var trackName: String
+                let artistName: String?
+                let collectionName: String?
+                let artworkUrl100: String?
+                var previewUrl: String?
+                
+            }
+
+    }
+    
     
 }
 

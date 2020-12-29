@@ -9,23 +9,20 @@ import UIKit
 
 class SearchCollectionViewController: UIViewController {
     
-    //MARK: - Property
-  
+    var viewDataCell: ViewData = .initial {
+        didSet {
+            DispatchQueue.main.async {
+                self.reloadView()
+            }
+        }
+    }
+
     let searchView = SearchViewCode()
-    var viewModel: MainViewModel
+    var viewModel: MainViewModelProtocol!
+ 
     
     private let refreshControl = UIRefreshControl()
     private let searchController = UISearchController(searchResultsController: nil)
-    
-    
-    init(viewModel: MainViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - LifiCicle
     
@@ -33,14 +30,17 @@ class SearchCollectionViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+
     override func loadView() {
         super.loadView()
         view = searchView
     }
     override func viewDidLoad() {
+        viewModel = MainViewModel()
         super.viewDidLoad()
+    
+        updateView()
         
-        viewModel.delegate = self
         setupMainView()
         setupSearchBar()
 
@@ -60,11 +60,10 @@ class SearchCollectionViewController: UIViewController {
     }
     func makeReguest(searchText: String) {
         searchView.showSpinner()
-        viewModel.fetchAlbums(searchText: searchText)
-
+        viewModel.startFetch(searchText: searchText)
     }
    
-    private func stopSpiners() {
+    func stopSpiners() {
         searchView.hideSpinner(withDelay: 0.2)
         refreshControl.endRefreshing()
     }
@@ -76,31 +75,55 @@ class SearchCollectionViewController: UIViewController {
     
     //MARK: - Selectors
     @objc private func refreshAlbumList() {
-           makeReguest(searchText: viewModel.lastRequestName)
+        makeReguest(searchText:viewModel.lastRequestName)
        }
+    
+    private func updateView() {
+        viewModel.updateViewData = { [weak self] viewData in
+            self?.viewDataCell = viewData
+        }
+    }
+    private func reloadView() {
+        searchView.collectionView.reloadData()
+    }
 
 }
-
-//MARK: - MainViewModelProtocol
-
-extension SearchCollectionViewController: MainViewModelProtocol {
+extension SearchCollectionViewController: TrackMovingDelegate {
+    func moveBackForPreviousTrack() -> TrackData.TrackOne? {
+        return getTrack(isForward: true)
+    }
     
-    func fetchingResult(_ isNeedToUpdateView: Bool, errorDescription: String?) {
-        guard errorDescription == nil else {
-            DispatchQueue.main.async {
-                self.showAlert(title: "Request error", message: errorDescription ?? "No message")
-                self.stopSpiners()
-            }
-            return }
-        if isNeedToUpdateView {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.searchView.collectionView.reloadData()
-                self.stopSpiners()
-            }
+    func moveForwardForPreviousTrack() -> TrackData.TrackOne? {
+        return getTrack(isForward: false)
+    }
+    
+
+    private func getTrack(isForward: Bool) -> TrackData.TrackOne? {
+        guard let indexPath = searchView.collectionView.indexPathsForSelectedItems else { return nil}
+        let index = indexPath.first!
+        searchView.collectionView.deselectItem(at: index, animated: true)
+        var nextIndexPath: IndexPath!
+        
+        if isForward {
+            nextIndexPath = IndexPath(row: index.row + 1, section: index.section)
         } else {
-            DispatchQueue.main.async {
-                self.stopSpiners()
-            }
+            nextIndexPath = IndexPath(row: index.row - 1, section: index.section)
         }
+        
+        searchView.collectionView.selectItem(at: nextIndexPath, animated: true, scrollPosition: .top)
+        var trackOne: TrackData.TrackOne?
+        switch viewDataCell {
+        case .success(let success):
+            let cellModel = success.results[index.row + 1]
+            trackOne = reversData(viewData: cellModel)
+            return reversData(viewData: cellModel)
+        case .initial:
+            break
+        case .loading(_):
+            break
+        case .failure(_):
+            break
+        }
+        return trackOne
     }
 }

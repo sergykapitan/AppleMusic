@@ -8,7 +8,8 @@
 import UIKit
 
 final class SearchViewCode: UIView {
- 
+
+
     //MARK: - UI
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -71,4 +72,6 @@ final class SearchViewCode: UIView {
             self.hideSpinner()
         }
     }
+   
+
 }
