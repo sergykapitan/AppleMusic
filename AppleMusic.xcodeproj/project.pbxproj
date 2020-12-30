@@ -26,6 +26,13 @@
 		8C96225B2598778100F1E47F /* ExDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96225A2598778100F1E47F /* ExDelegate.swift */; };
 		8C96225E259877C300F1E47F /* ExDelegateFlowLayOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96225D259877C300F1E47F /* ExDelegateFlowLayOut.swift */; };
 		8C962261259879EA00F1E47F /* ExSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C962260259879EA00F1E47F /* ExSearchBarDelegate.swift */; };
+		8CBA08C7259C730F00DA84B1 /* ExTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08C6259C730F00DA84B1 /* ExTableView.swift */; };
+		8CBA08CB259C733F00DA84B1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08CA259C733F00DA84B1 /* HistoryTableViewCell.swift */; };
+		8CBA08CE259C759900DA84B1 /* ExTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08CD259C759900DA84B1 /* ExTableDelegate.swift */; };
+		8CBA08D1259C7B0E00DA84B1 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */; };
+		8CBA08D4259C7B8000DA84B1 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */; };
+		8CBA08DC259C9B1300DA84B1 /* Core.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08DA259C9B1300DA84B1 /* Core.xcdatamodeld */; };
+		8CBA08DF259C9D9400DA84B1 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08DE259C9D9400DA84B1 /* CoreDataService.swift */; };
 		8CCFC9582598C6B900481E59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC9572598C6B900481E59 /* DetailViewController.swift */; };
 		8CCFC95C2598C73600481E59 /* DetailViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC95B2598C73600481E59 /* DetailViewCode.swift */; };
 		8CCFC9672598D22700481E59 /* ExDelegateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC9662598D22700481E59 /* ExDelegateDetailView.swift */; };
@@ -58,6 +65,13 @@
 		8C96225A2598778100F1E47F /* ExDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDelegate.swift; sourceTree = "<group>"; };
 		8C96225D259877C300F1E47F /* ExDelegateFlowLayOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDelegateFlowLayOut.swift; sourceTree = "<group>"; };
 		8C962260259879EA00F1E47F /* ExSearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExSearchBarDelegate.swift; sourceTree = "<group>"; };
+		8CBA08C6259C730F00DA84B1 /* ExTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExTableView.swift; sourceTree = "<group>"; };
+		8CBA08CA259C733F00DA84B1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		8CBA08CD259C759900DA84B1 /* ExTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExTableDelegate.swift; sourceTree = "<group>"; };
+		8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		8CBA08DB259C9B1300DA84B1 /* Core.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core.xcdatamodel; sourceTree = "<group>"; };
+		8CBA08DE259C9D9400DA84B1 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		8CCFC9572598C6B900481E59 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8CCFC95B2598C73600481E59 /* DetailViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCode.swift; sourceTree = "<group>"; };
 		8CCFC9662598D22700481E59 /* ExDelegateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDelegateDetailView.swift; sourceTree = "<group>"; };
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				8C4AEF302594CDC400F8F772 /* Networking.swift */,
+				8CBA08DE259C9D9400DA84B1 /* CoreDataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -102,6 +117,7 @@
 		8C551A1E2593974C00B84C69 = {
 			isa = PBXGroup;
 			children = (
+				8CBA08DA259C9B1300DA84B1 /* Core.xcdatamodeld */,
 				8C551A292593974D00B84C69 /* AppleMusic */,
 				8C551A282593974D00B84C69 /* Products */,
 				17896B4F0EA57C0F774FCF0C /* Pods */,
@@ -125,6 +141,7 @@
 				8C551A592593CC7E00B84C69 /* MainScreen */,
 				8CCFC9562598C67000481E59 /* DetailScreen */,
 				8C551A5B2593CCCE00B84C69 /* SearchScreen */,
+				8CBA08C5259C72EC00DA84B1 /* ExtentionTableView */,
 				8C551A512593B0A900B84C69 /* Extentions */,
 				8C4AEF2F2594CD9800F8F772 /* Service */,
 				8C551A4025939D9200B84C69 /* Assets */,
@@ -187,6 +204,7 @@
 			children = (
 				8C551A452593A11400B84C69 /* HistoryViewController.swift */,
 				8C551A562593C5E500B84C69 /* HistoryViewCode.swift */,
+				8CBA08CA259C733F00DA84B1 /* HistoryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +238,7 @@
 		8C551A622593CEC200B84C69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -227,6 +246,7 @@
 		8C551A632593CED100B84C69 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -248,6 +268,15 @@
 				8C4AEF1B2594A3B400F8F772 /* MainTabBarController.swift */,
 			);
 			path = MainTabBarController;
+			sourceTree = "<group>";
+		};
+		8CBA08C5259C72EC00DA84B1 /* ExtentionTableView */ = {
+			isa = PBXGroup;
+			children = (
+				8CBA08C6259C730F00DA84B1 /* ExTableView.swift */,
+				8CBA08CD259C759900DA84B1 /* ExTableDelegate.swift */,
+			);
+			path = ExtentionTableView;
 			sourceTree = "<group>";
 		};
 		8CCFC9562598C67000481E59 /* DetailScreen */ = {
@@ -416,25 +445,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CBA08DC259C9B1300DA84B1 /* Core.xcdatamodeld in Sources */,
 				8C551A572593C5E500B84C69 /* HistoryViewCode.swift in Sources */,
 				8C551A542593B2DB00B84C69 /* Constant.swift in Sources */,
+				8CBA08CB259C733F00DA84B1 /* HistoryTableViewCell.swift in Sources */,
 				8C4AEF1C2594A3B400F8F772 /* MainTabBarController.swift in Sources */,
 				8C96225E259877C300F1E47F /* ExDelegateFlowLayOut.swift in Sources */,
 				8CD944B5259B9D6500344857 /* DetailModel.swift in Sources */,
 				8C4AEF312594CDC400F8F772 /* Networking.swift in Sources */,
+				8CBA08D4259C7B8000DA84B1 /* HistoryViewModel.swift in Sources */,
+				8CBA08CE259C759900DA84B1 /* ExTableDelegate.swift in Sources */,
 				8C96225B2598778100F1E47F /* ExDelegate.swift in Sources */,
 				8C551A2B2593974D00B84C69 /* AppDelegate.swift in Sources */,
 				8C551A5E2593CD8B00B84C69 /* ViewData.swift in Sources */,
 				8C551A652593CF5900B84C69 /* MainViewModel.swift in Sources */,
+				8CBA08D1259C7B0E00DA84B1 /* HistoryModel.swift in Sources */,
 				8CCFC9872599E8F900481E59 /* DetailViewModel.swift in Sources */,
 				8CCFC95C2598C73600481E59 /* DetailViewCode.swift in Sources */,
 				8CCFC9582598C6B900481E59 /* DetailViewController.swift in Sources */,
+				8CBA08DF259C9D9400DA84B1 /* CoreDataService.swift in Sources */,
 				8CCFC9672598D22700481E59 /* ExDelegateDetailView.swift in Sources */,
 				8C551A4F2593B0A400B84C69 /* Extentions.swift in Sources */,
 				8CCFC96A2598D24900481E59 /* ExDataSourseDetailView.swift in Sources */,
 				8C4AEF242594B62200F8F772 /* SearchCollectionViewCell.swift in Sources */,
 				8C9622572598748C00F1E47F /* ExDataSource.swift in Sources */,
 				8C551A462593A11400B84C69 /* HistoryViewController.swift in Sources */,
+				8CBA08C7259C730F00DA84B1 /* ExTableView.swift in Sources */,
 				8CD944B8259BC3CB00344857 /* CMTime + Extention.swift in Sources */,
 				8C962261259879EA00F1E47F /* ExSearchBarDelegate.swift in Sources */,
 				8C4AEF2B2594BC1100F8F772 /* SearchCollectionViewController.swift in Sources */,
@@ -635,6 +671,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8CBA08DA259C9B1300DA84B1 /* Core.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8CBA08DB259C9B1300DA84B1 /* Core.xcdatamodel */,
+			);
+			currentVersion = 8CBA08DB259C9B1300DA84B1 /* Core.xcdatamodel */;
+			name = Core.xcdatamodeld;
+			path = AppleMusic/SearchScreen/Core.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8C551A1F2593974C00B84C69 /* Project object */;
 }

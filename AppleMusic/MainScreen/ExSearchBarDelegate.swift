@@ -16,8 +16,11 @@ extension SearchCollectionViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchView.showSpinner()
+        guard let request = searchBar.text else { return }
+        CoreDataService.shared.save(recents: request)
         makeReguest(searchText: searchBar.text?.replacingOccurrences(of: " ", with: "") ?? "Cach")
         navigationItem.searchController?.isActive = false
+        
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class SearchCollectionViewController: UIViewController {
     
@@ -16,7 +18,8 @@ class SearchCollectionViewController: UIViewController {
             }
         }
     }
-
+    
+    var name = [NSManagedObject]()
     let searchView = SearchViewCode()
     var viewModel: MainViewModelProtocol!
  
@@ -126,4 +129,5 @@ extension SearchCollectionViewController: TrackMovingDelegate {
         }
         return trackOne
     }
+
 }

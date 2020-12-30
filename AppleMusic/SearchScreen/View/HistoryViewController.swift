@@ -8,18 +8,38 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
+    
+    private var viewModel: HistoryViewModelProtocol!
+    let historyView = HistoryViewCode()
+    var history = [Recent]()
+        
+ 
 
+   
+    
     //MARK - LifeCicle
     override func loadView() {
-        view = HistoryViewCode()
+        view = historyView
     }
     override func viewDidLoad() {
+        viewModel = HistoryViewModel()
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        updateView()
+        makeTableView()
+        viewModel.startFetch()
     }
- 
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    
+    private func makeTableView() {
+        historyView.tableView.dataSource = self
+        historyView.tableView.delegate = self
+        historyView.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "HistoryTableViewCell")
     }
+    private func updateView() {
+        viewModel.updateViewData = { [weak self] viewData in
+            self?.historyView.viewData = viewData
+            
+        }
+    }
+
 }

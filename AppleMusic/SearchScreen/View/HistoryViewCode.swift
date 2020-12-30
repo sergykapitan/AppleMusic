@@ -9,6 +9,14 @@ import UIKit
 
 final class HistoryViewCode: UIView {
     
+    
+    var viewData: HistoryData = .initial {
+        didSet {
+            setNeedsLayout()
+            tableView.reloadData()
+            print("HistoryViewCode = .inishial")
+        }
+    }
     //MARK: - First layer in TopView
     
     let cardView: UIView = {
@@ -20,6 +28,22 @@ final class HistoryViewCode: UIView {
         view.clipsToBounds = true
             return view
         }()
+    var tableView: UITableView = {
+        let table = UITableView()
+        return table
+    }()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        switch viewData {
+        case .initial:
+            print("viewData .inishial")
+        case .success(let success):
+            print("viewData .success = \(success.historySearch)")
+        case .failure(_):
+            print("viewData .failure")
+        }
+    }
     
     //MARK - initial
     
@@ -34,10 +58,15 @@ final class HistoryViewCode: UIView {
     func createCardViewLayer() {
         addSubview(cardView)
         cardView.fillSuperview()
-            
+        cardView.addSubview(tableView)
+        tableView.fillSuperview()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func updateView(viewModel: HistoryData.History) {
+        print("updateView in HistoryViewCode")
     }
 }
 
