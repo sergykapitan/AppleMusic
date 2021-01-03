@@ -14,7 +14,7 @@ class SearchCollectionViewController: UIViewController {
     var viewDataCell: ViewData = .initial {
         didSet {
             DispatchQueue.main.async {
-                self.reloadView()
+                   self.reloadView()
             }
         }
     }
