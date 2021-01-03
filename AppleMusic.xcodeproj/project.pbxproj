@@ -31,7 +31,6 @@
 		8CBA08CE259C759900DA84B1 /* ExTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08CD259C759900DA84B1 /* ExTableDelegate.swift */; };
 		8CBA08D1259C7B0E00DA84B1 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */; };
 		8CBA08D4259C7B8000DA84B1 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */; };
-		8CBA08DC259C9B1300DA84B1 /* Core.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08DA259C9B1300DA84B1 /* Core.xcdatamodeld */; };
 		8CBA08DF259C9D9400DA84B1 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08DE259C9D9400DA84B1 /* CoreDataService.swift */; };
 		8CCFC9582598C6B900481E59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC9572598C6B900481E59 /* DetailViewController.swift */; };
 		8CCFC95C2598C73600481E59 /* DetailViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC95B2598C73600481E59 /* DetailViewCode.swift */; };
@@ -40,6 +39,7 @@
 		8CCFC9872599E8F900481E59 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC9862599E8F900481E59 /* DetailViewModel.swift */; };
 		8CD944B5259B9D6500344857 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD944B4259B9D6500344857 /* DetailModel.swift */; };
 		8CD944B8259BC3CB00344857 /* CMTime + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD944B7259BC3CB00344857 /* CMTime + Extention.swift */; };
+		8CE9CEF825A1C6CF005838FE /* Core.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9CEF625A1C6CF005838FE /* Core.xcdatamodeld */; };
 		FFDA8A5B6AF1D2D84F72FBCE /* Pods_AppleMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF6E942899F8DE1BE8D2DBB /* Pods_AppleMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +70,6 @@
 		8CBA08CD259C759900DA84B1 /* ExTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExTableDelegate.swift; sourceTree = "<group>"; };
 		8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
-		8CBA08DB259C9B1300DA84B1 /* Core.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core.xcdatamodel; sourceTree = "<group>"; };
 		8CBA08DE259C9D9400DA84B1 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		8CCFC9572598C6B900481E59 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8CCFC95B2598C73600481E59 /* DetailViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCode.swift; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		8CCFC9862599E8F900481E59 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		8CD944B4259B9D6500344857 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		8CD944B7259BC3CB00344857 /* CMTime + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extention.swift"; sourceTree = "<group>"; };
+		8CE9CEF725A1C6CF005838FE /* Core.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core.xcdatamodel; sourceTree = "<group>"; };
 		DCF6E942899F8DE1BE8D2DBB /* Pods_AppleMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1873D85E82E6056FD0FEBC3 /* Pods-AppleMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusic.release.xcconfig"; path = "Target Support Files/Pods-AppleMusic/Pods-AppleMusic.release.xcconfig"; sourceTree = "<group>"; };
 		E1E5D5E71C7228D044F79D7A /* Pods-AppleMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusic.debug.xcconfig"; path = "Target Support Files/Pods-AppleMusic/Pods-AppleMusic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		8C551A1E2593974C00B84C69 = {
 			isa = PBXGroup;
 			children = (
-				8CBA08DA259C9B1300DA84B1 /* Core.xcdatamodeld */,
+				8CE9CEF625A1C6CF005838FE /* Core.xcdatamodeld */,
 				8C551A292593974D00B84C69 /* AppleMusic */,
 				8C551A282593974D00B84C69 /* Products */,
 				17896B4F0EA57C0F774FCF0C /* Pods */,
@@ -445,7 +445,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CBA08DC259C9B1300DA84B1 /* Core.xcdatamodeld in Sources */,
 				8C551A572593C5E500B84C69 /* HistoryViewCode.swift in Sources */,
 				8C551A542593B2DB00B84C69 /* Constant.swift in Sources */,
 				8CBA08CB259C733F00DA84B1 /* HistoryTableViewCell.swift in Sources */,
@@ -463,6 +462,7 @@
 				8CCFC9872599E8F900481E59 /* DetailViewModel.swift in Sources */,
 				8CCFC95C2598C73600481E59 /* DetailViewCode.swift in Sources */,
 				8CCFC9582598C6B900481E59 /* DetailViewController.swift in Sources */,
+				8CE9CEF825A1C6CF005838FE /* Core.xcdatamodeld in Sources */,
 				8CBA08DF259C9D9400DA84B1 /* CoreDataService.swift in Sources */,
 				8CCFC9672598D22700481E59 /* ExDelegateDetailView.swift in Sources */,
 				8C551A4F2593B0A400B84C69 /* Extentions.swift in Sources */,
@@ -673,14 +673,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8CBA08DA259C9B1300DA84B1 /* Core.xcdatamodeld */ = {
+		8CE9CEF625A1C6CF005838FE /* Core.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8CBA08DB259C9B1300DA84B1 /* Core.xcdatamodel */,
+				8CE9CEF725A1C6CF005838FE /* Core.xcdatamodel */,
 			);
-			currentVersion = 8CBA08DB259C9B1300DA84B1 /* Core.xcdatamodel */;
-			name = Core.xcdatamodeld;
-			path = AppleMusic/SearchScreen/Core.xcdatamodeld;
+			currentVersion = 8CE9CEF725A1C6CF005838FE /* Core.xcdatamodel */;
+			path = Core.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
