@@ -141,7 +141,6 @@
 				8C551A592593CC7E00B84C69 /* MainScreen */,
 				8CCFC9562598C67000481E59 /* DetailScreen */,
 				8C551A5B2593CCCE00B84C69 /* HistoryScreen */,
-				8CBA08C5259C72EC00DA84B1 /* ExtentionTableView */,
 				8C551A512593B0A900B84C69 /* Extentions */,
 				8C4AEF2F2594CD9800F8F772 /* Service */,
 				8C551A4025939D9200B84C69 /* Assets */,
@@ -215,6 +214,7 @@
 				8C551A622593CEC200B84C69 /* Model */,
 				8C551A632593CED100B84C69 /* ViewModel */,
 				8C551A5A2593CCBD00B84C69 /* View */,
+				8CBA08C5259C72EC00DA84B1 /* ExtentionTableView */,
 			);
 			path = HistoryScreen;
 			sourceTree = "<group>";
