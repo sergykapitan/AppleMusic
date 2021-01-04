@@ -192,9 +192,9 @@ final class DetailViewCode: UIView {
         table.addSubview(tableView)
         tableView.fillSuperview()
         stackHTherd = UIStackView(arrangedSubviews: [imageVolumeMin,sliderVolume,imageVolumeMax])
-        stackHSecond = UIStackView(arrangedSubviews: [butttonPrevireusTrack,butttonPlay,butttonNextTrack])
+        stackHSecond = UIStackView(arrangedSubviews: [butttonPlay])
         stackHFirst = UIStackView(arrangedSubviews: [labelTimestart,labelTimestop])
-        stackVFirst = UIStackView(arrangedSubviews:[imageAlbum,sliderSongPlay,stackHFirst,trackTitleLabel,authorLabel,table,stackHSecond,stackHTherd])
+        stackVFirst = UIStackView(arrangedSubviews:[imageAlbum,sliderSongPlay,stackHFirst,trackTitleLabel,table,stackHSecond,stackHTherd])
         stackVFirst.axis = .vertical
         cardView.addSubview(stackVFirst)
     }

@@ -11,8 +11,7 @@ import UIKit
 
 extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     //   history = CoreDataService.shared.fetch()
-        history = CoreManager.shared.load()
+        history = CoreManager.shared.history()
         return history.count
         
     }
@@ -20,7 +19,7 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-        cell.titleLabel.text = history[indexPath.row].name
+        cell.titleLabel.text = history[indexPath.row].searchText
         return cell
     }
     

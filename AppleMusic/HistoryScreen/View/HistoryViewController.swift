@@ -11,7 +11,7 @@ class HistoryViewController: UIViewController {
     
   
     let historyView = HistoryViewCode()
-    var history = [Track]()
+    var history = [History]()
     
     //MARK - LifeCicle
     override func loadView() {

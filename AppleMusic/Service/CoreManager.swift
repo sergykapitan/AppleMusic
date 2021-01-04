@@ -35,6 +35,16 @@ final class CoreManager {
     
     
     //MARK: Save
+    func save(_ text: History) {
+        
+        let entity = NSEntityDescription.entity(forEntityName: "CoreTrack", in: context)!
+        let core = CoreTrack(entity: entity, insertInto: context)
+        
+        //KVC - Key Value Coding - access object property by String
+        core.setValue(text.searchText, forKey: "searchText")
+        print("Saved Fact To Core")
+        saveContext()
+    }
     func save(_ track: Track) {
         
         let entity = NSEntityDescription.entity(forEntityName: "CoreTrack", in: context)!
@@ -101,8 +111,22 @@ final class CoreManager {
         return tracks
     }
     
+    func history() -> [History] {
+        
+        let fetchRequest = NSFetchRequest<CoreTrack>(entityName: "CoreTrack")
+        var history = [History]()
     
+    do {
+        let coreTracks = try context.fetch(fetchRequest)
+        for core in coreTracks {
+            history.append(History(searchText: core.searchText))
+        }
+    } catch {
+        print("Couldn't Fetch Fact: \(error.localizedDescription)")
+    }
+    return history
     
+    }
     //MARK: Helpers
     
     private func saveContext() {

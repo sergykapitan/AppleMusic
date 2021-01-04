@@ -110,6 +110,7 @@ extension SearchCollectionViewController {
     guard let searchText = searchBar.text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
     
         viewModel.get(search: searchText)
+       CoreManager.shared.save(History(searchText: searchText))
         
         navigationItem.searchController?.isActive = false
         

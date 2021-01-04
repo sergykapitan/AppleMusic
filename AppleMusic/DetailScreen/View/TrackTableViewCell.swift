@@ -72,12 +72,12 @@ class TrackTableViewCell: UITableViewCell {
         ])
         
     }
-    override func prepareForReuse() {
-           super.prepareForReuse()
-        
-        self.textLabel?.text = nil
-        self.detailTextLabel?.text = nil
-        self.imageView?.image = nil
-       }
+//    override func prepareForReuse() {
+//           super.prepareForReuse()
+//        
+//        self.textLabel?.text = nil
+//        self.detailTextLabel?.text = nil
+//        self.imageView?.image = nil
+//       }
     
 }

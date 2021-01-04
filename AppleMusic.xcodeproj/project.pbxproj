@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C31885525A368020076A30D /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31885425A368020076A30D /* History.swift */; };
 		8C4874C725A21A7F00F47368 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C625A21A7F00F47368 /* Artist.swift */; };
 		8C4874CA25A21AA100F47368 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C925A21AA100F47368 /* Album.swift */; };
 		8C4874CD25A21ACE00F47368 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874CC25A21ACE00F47368 /* Song.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C31885425A368020076A30D /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		8C4874C625A21A7F00F47368 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		8C4874C925A21AA100F47368 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8C4874CC25A21ACE00F47368 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				8C4874C925A21AA100F47368 /* Album.swift */,
 				8C4874CC25A21ACE00F47368 /* Song.swift */,
 				8C4874D525A2307500F47368 /* Track.swift */,
+				8C31885425A368020076A30D /* History.swift */,
 				8C4874F625A242EF00F47368 /* CoreData.xcdatamodeld */,
 			);
 			name = Model;
@@ -434,6 +437,7 @@
 			files = (
 				8C551A572593C5E500B84C69 /* HistoryViewCode.swift in Sources */,
 				8C551A542593B2DB00B84C69 /* Constant.swift in Sources */,
+				8C31885525A368020076A30D /* History.swift in Sources */,
 				8C48751825A333F400F47368 /* SearchCollectionViewCell.swift in Sources */,
 				8CBA08CB259C733F00DA84B1 /* HistoryTableViewCell.swift in Sources */,
 				8C4AEF1C2594A3B400F8F772 /* MainTabBarController.swift in Sources */,
