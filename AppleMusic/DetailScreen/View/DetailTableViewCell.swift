@@ -19,7 +19,7 @@ class DetailTableViewCell: UITableViewCell {
     
     var album: Album! {
         didSet {
-            let price = album.price ?? 0.00
+           // let price = album.price ?? 0.00
             titleLabel.text = album.artist
 
         }

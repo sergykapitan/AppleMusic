@@ -44,27 +44,27 @@ class ViewModel {
         }
     }
     
-    func isInPlaylist(track: Track) -> Bool {
-        let id = track.id
-        for track in CoreManager.shared.load() {
-            if (track.id == id) {
-                return true
-            }
-        }
-        return false
-    }
+//    func isInPlaylist(track: Track) -> Bool {
+//        let id = track.id
+//        for track in CoreManager.shared.load() {
+//            if (track.id == id) {
+//                return true
+//            }
+//        }
+//        return false
+//    }
     
-    func add(track: Track) {
-        CoreManager.shared.save(track)
-    }
+//    func add(track: Track) {
+//        CoreManager.shared.save(track)
+//    }
     
     func delete(track: Track) {
         CoreManager.shared.delete(track)
     }
     
-    func getPlaylist() {
-        playlist = CoreManager.shared.load()
-    }
+//    func getPlaylist() {
+//        playlist = CoreManager.shared.load()
+//    }
     
     var tracks = [Track]() {
         didSet {

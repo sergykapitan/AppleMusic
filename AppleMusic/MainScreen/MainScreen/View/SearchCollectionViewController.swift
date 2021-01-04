@@ -71,6 +71,8 @@ class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
     func makeReguest(searchText: String) {
         searchView.showSpinner()
         viewModel.get(search: searchText)
+        print(searchText)
+        
     }
    
     func stopSpiners() {
@@ -110,7 +112,7 @@ extension SearchCollectionViewController {
     guard let searchText = searchBar.text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
     
         viewModel.get(search: searchText)
-       CoreManager.shared.save(History(searchText: searchText))
+        CoreManager.shared.save(History(searchText: searchText))
         
         navigationItem.searchController?.isActive = false
         

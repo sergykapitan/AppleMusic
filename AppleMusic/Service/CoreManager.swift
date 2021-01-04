@@ -45,26 +45,26 @@ final class CoreManager {
         print("Saved Fact To Core")
         saveContext()
     }
-    func save(_ track: Track) {
-        
-        let entity = NSEntityDescription.entity(forEntityName: "CoreTrack", in: context)!
-        let core = CoreTrack(entity: entity, insertInto: context)
-        
-        //KVC - Key Value Coding - access object property by String
-        core.setValue(track.id, forKey: "id")
-        core.setValue(track.name, forKey: "name")
-        core.setValue(track.url, forKey: "url")
-        core.setValue(track.image, forKey: "image")
-        core.setValue(track.price, forKey: "price")
-        core.setValue(track.releaseDate, forKey: "releaseDate")
-        core.setValue(track.duration, forKey: "duration")
-        
-        
-        
-        print("Saved Fact To Core")
-        saveContext()
-        
-    }
+//    func save(_ track: Track) {
+//        
+//        let entity = NSEntityDescription.entity(forEntityName: "CoreTrack", in: context)!
+//        let core = CoreTrack(entity: entity, insertInto: context)
+//        
+//        //KVC - Key Value Coding - access object property by String
+//        core.setValue(track.id, forKey: "id")
+//        core.setValue(track.name, forKey: "name")
+//        core.setValue(track.url, forKey: "url")
+//        core.setValue(track.image, forKey: "image")
+//        core.setValue(track.price, forKey: "price")
+//        core.setValue(track.releaseDate, forKey: "releaseDate")
+//        core.setValue(track.duration, forKey: "duration")
+//        
+//        
+//        
+//        print("Saved Fact To Core")
+//        saveContext()
+//        
+//    }
     
     //MARK: Delete
     func delete(_ track: Track) {
@@ -91,25 +91,25 @@ final class CoreManager {
     }
     
     //MARK: Load
-    func load() -> [Track] {
-        
-        let fetchRequest = NSFetchRequest<CoreTrack>(entityName: "CoreTrack")
-        
-        var tracks = [Track]()
-        
-        do {
-            
-            let coreTracks = try context.fetch(fetchRequest)
-            for core in coreTracks {
-                tracks.append(Track(from: core))
-            }
-            
-        } catch {
-            print("Couldn't Fetch Fact: \(error.localizedDescription)")
-        }
-        
-        return tracks
-    }
+//    func load() -> [Track] {
+//        
+//        let fetchRequest = NSFetchRequest<CoreTrack>(entityName: "CoreTrack")
+//        
+//        var tracks = [Track]()
+//        
+//        do {
+//            
+//            let coreTracks = try context.fetch(fetchRequest)
+//            for core in coreTracks {
+//                tracks.append(Track(from: core))
+//            }
+//            
+//        } catch {
+//            print("Couldn't Fetch Fact: \(error.localizedDescription)")
+//        }
+//        
+//        return tracks
+//    }
     
     func history() -> [History] {
         
