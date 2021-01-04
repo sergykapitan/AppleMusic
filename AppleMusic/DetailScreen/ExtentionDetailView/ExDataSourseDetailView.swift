@@ -33,7 +33,7 @@ extension DetailViewController: UITableViewDataSource {
             cell.track = track
             detailView.track = track
             cell.button.tag = indexPath.row
-            cell.button.addTarget(self, action: #selector(refreshAlbumList(sender:)), for: .touchUpInside)
+         //   cell.button.addTarget(self, action: #selector(refreshAlbumList(sender:)), for: .touchUpInside)
 
 
             return cell

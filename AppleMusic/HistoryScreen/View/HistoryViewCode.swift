@@ -8,15 +8,7 @@
 import UIKit
 
 final class HistoryViewCode: UIView {
-    
-    
-    var viewData: HistoryData = .initial {
-        didSet {
-            setNeedsLayout()
-            tableView.reloadData()
-            print("HistoryViewCode = .inishial")
-        }
-    }
+
     //MARK: - First layer in TopView
     
     let cardView: UIView = {
@@ -32,19 +24,7 @@ final class HistoryViewCode: UIView {
         let table = UITableView()
         return table
     }()
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        
-//        switch viewData {
-//        case .initial:
-//            print("viewData .inishial")
-//        case .success(let success):
-//            print("viewData .success = \(success.historySearch)")
-//        case .failure(_):
-//            print("viewData .failure")
-//        }
-//    }
-    
+
     //MARK - initial
     
     override init(frame: CGRect) {
@@ -65,8 +45,6 @@ final class HistoryViewCode: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func updateView(viewModel: HistoryData.History) {
-        print("updateView in HistoryViewCode")
-    }
+
 }
 

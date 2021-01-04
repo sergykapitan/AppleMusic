@@ -23,10 +23,7 @@ class TrackTableViewCell: UITableViewCell {
     
     var track: Track! {
         didSet {
-            print("Track")
             titleLabel.text = track.name
-//            detailTextLabel?.text = track.duration!.toMinutes
-//            detailTextLabel?.text = "$\(track.price!)"
         }
     }
     

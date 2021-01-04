@@ -10,12 +10,6 @@ import UIKit
 import Foundation
 import AVKit
 
-//protocol TrackMovingDelegate: class {
-//    
-//    func moveBackForPreviousTrack() -> DetailModel.TrackOne?
-//    func moveForwardForPreviousTrack() -> DetailModel.TrackOne?
-//    
-//}
 
 
 class DetailViewController: UIViewController {
@@ -26,22 +20,7 @@ class DetailViewController: UIViewController {
     var previousSelected: Int? //optional - could be nil
     var audioPlayer: AVAudioPlayer!
     
-  //  weak var delegate: TrackMovingDelegate?
-    var albumss: Album! {
-      didSet {
-        print("123")
-        
-      }
-    }
-    var track: Track! {
-        didSet {
-            print("TrackViewControler")
-    
-//            detailTextLabel?.text = track.duration!.toMinutes
-//            detailTextLabel?.text = "$\(track.price!)"
-        }
-    }
-    
+
     override func loadView() {
         super.loadView()
         let scale: CGFloat = 0.8
@@ -56,11 +35,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
             super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
-       // setUI()
         actionButton()
         actionSongSlider()
         makeTableView()
         setupDetail()
+        monitorStartTime()
+        observerPlayerCirrentTime()
 
     }
     private func makeTableView() {
@@ -70,32 +50,43 @@ class DetailViewController: UIViewController {
         detailView.tableView.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.identifier)
         
     }
-    func buttonTarget() {
-    
+
+    //MARK: - Action
+    private func actionSongSlider() {
+        detailView.sliderSongPlay.addTarget(self, action: #selector(actionSliderSong), for: .valueChanged)
+        detailView.sliderVolume.addTarget(self, action: #selector(changeVolumeSlider), for: .valueChanged)
     }
-    
-    @objc  func refreshAlbumList(sender: UIButton) {
-        
+
+    func actionButton() {
+        detailView.butttonPlay.addTarget(self, action: #selector(playTrackSong), for: .touchUpInside)
+       // detailView.butttonNextTrack.addTarget(self, action: #selector(nextTrack(sender:)), for: .touchUpInside)
+        detailView.butttonPrevireusTrack.addTarget(self, action:  #selector(previreusTrack), for: .touchUpInside)
+    }
+
+    //MARK: - Selector
+    @objc func nextTrack(sender: UIButton) {
         let track = viewModel.tracks[sender.tag]
-        print(sender.tag)
         //check if its the fist time we tapped the play button - check if same button is tapped twice
         if previousSelected != nil && sender.tag != previousSelected {
             detailView.tableView.reloadRows(at: [IndexPath(row: previousSelected!, section: 1)], with: .top)
         }
         
-        switch sender.currentImage == #imageLiteral(resourceName: "play") {
+        switch sender.currentImage == #imageLiteral(resourceName: "Right"){
+        
         case true:
+            print(true)
             guard let endpoint = track.url, let url = URL(string: endpoint) else { return }
             //API Requests
             URLSession.shared.dataTask(with: url) { [weak self] (dat, _, _) in
                 if let data = dat {
                     do {
                         DispatchQueue.main.async {
-                            sender.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+                            sender.setImage(#imageLiteral(resourceName: "Right"), for: .normal)
                             self?.previousSelected = sender.tag
                         }
                         //Set AVPlayer with Data from API Request
                         self?.audioPlayer = try AVAudioPlayer(data: data)
+                        self!.detailView.player.pause()
                         //AudioPlayer to play
                         self?.audioPlayer.play()
                     } catch {
@@ -106,33 +97,13 @@ class DetailViewController: UIViewController {
             }.resume()
             
         case false:
+            print(sender.currentTitleColor)
+            print(false)
             previousSelected = nil
-            sender.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-            audioPlayer.pause()
+            sender.setImage(#imageLiteral(resourceName: "Right"), for: .normal)
+            detailView.player.pause()
         }
         
-       }
-
-
-    
-    //MARK: - Metods
-    private func actionSongSlider() {
-        detailView.sliderSongPlay.addTarget(self, action: #selector(actionSliderSong), for: .valueChanged)
-        detailView.sliderVolume.addTarget(self, action: #selector(changeVolumeSlider), for: .valueChanged)
-    }
-
-    func actionButton() {
-        detailView.butttonPlay.addTarget(self, action: #selector(playTrackSong), for: .touchUpInside)
-        detailView.butttonNextTrack.addTarget(self, action: #selector(nextTrack), for: .touchUpInside)
-        detailView.butttonPrevireusTrack.addTarget(self, action:  #selector(previreusTrack), for: .touchUpInside)
-    }
-
-    //MARK: - Selector
-    @objc func nextTrack() {
-       // let cellViewModel = delegate?.moveForwardForPreviousTrack()
-//        cellViewModel
-//            .then{ _ in setUI()}
-//            .otherwise { print("cellViewModel = nil")}
     }
     @objc func previreusTrack() {
        // let cellViewModel = delegate?.moveBackForPreviousTrack()
@@ -212,18 +183,6 @@ class DetailViewController: UIViewController {
 
 }
 
-//extension DetailViewController {
-//
-//    func setUI() {
-//        let string600 = viewModel.currentAlbum.image.replacingOccurrences(of: "100x100", with: "600x600")
-//        guard let url = URL(string: string600) else { return }
-//        monitorStartTime()
-//        observerPlayerCirrentTime()
-//        print("currentAlbum = \(viewModel.currentAlbum.url)")
-//        detailView.configureDetailView(trackTitle: viewModel.currentAlbum.title, author: viewModel.currentAlbum.artist,url: url)
-//
-//    }
-//}
 //MARK: TrackDelegate
 extension DetailViewController: TrackDelegate {
     func update() {

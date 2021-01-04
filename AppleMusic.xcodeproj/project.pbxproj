@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C4874C125A21A0000F47368 /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C025A21A0000F47368 /* PresenterProtocol.swift */; };
-		8C4874C425A21A2300F47368 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C325A21A2300F47368 /* ViewProtocol.swift */; };
 		8C4874C725A21A7F00F47368 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C625A21A7F00F47368 /* Artist.swift */; };
 		8C4874CA25A21AA100F47368 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C925A21AA100F47368 /* Album.swift */; };
 		8C4874CD25A21ACE00F47368 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874CC25A21ACE00F47368 /* Song.swift */; };
@@ -43,8 +41,6 @@
 		8CBA08C7259C730F00DA84B1 /* ExTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08C6259C730F00DA84B1 /* ExTableView.swift */; };
 		8CBA08CB259C733F00DA84B1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08CA259C733F00DA84B1 /* HistoryTableViewCell.swift */; };
 		8CBA08CE259C759900DA84B1 /* ExTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08CD259C759900DA84B1 /* ExTableDelegate.swift */; };
-		8CBA08D1259C7B0E00DA84B1 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */; };
-		8CBA08D4259C7B8000DA84B1 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */; };
 		8CCFC9582598C6B900481E59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC9572598C6B900481E59 /* DetailViewController.swift */; };
 		8CCFC95C2598C73600481E59 /* DetailViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC95B2598C73600481E59 /* DetailViewCode.swift */; };
 		8CCFC9672598D22700481E59 /* ExDelegateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC9662598D22700481E59 /* ExDelegateDetailView.swift */; };
@@ -54,8 +50,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C4874C025A21A0000F47368 /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
-		8C4874C325A21A2300F47368 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		8C4874C625A21A7F00F47368 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		8C4874C925A21AA100F47368 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8C4874CC25A21ACE00F47368 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -92,8 +86,6 @@
 		8CBA08C6259C730F00DA84B1 /* ExTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExTableView.swift; sourceTree = "<group>"; };
 		8CBA08CA259C733F00DA84B1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		8CBA08CD259C759900DA84B1 /* ExTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExTableDelegate.swift; sourceTree = "<group>"; };
-		8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
-		8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		8CCFC9572598C6B900481E59 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8CCFC95B2598C73600481E59 /* DetailViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCode.swift; sourceTree = "<group>"; };
 		8CCFC9662598D22700481E59 /* ExDelegateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDelegateDetailView.swift; sourceTree = "<group>"; };
@@ -123,15 +115,6 @@
 				E1873D85E82E6056FD0FEBC3 /* Pods-AppleMusic.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		8C4874BF25A219E500F47368 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				8C4874C025A21A0000F47368 /* PresenterProtocol.swift */,
-				8C4874C325A21A2300F47368 /* ViewProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8C4AEF2F2594CD9800F8F772 /* Service */ = {
@@ -174,7 +157,6 @@
 				8C551A5B2593CCCE00B84C69 /* HistoryScreen */,
 				8C551A512593B0A900B84C69 /* Extentions */,
 				8C4AEF2F2594CD9800F8F772 /* Service */,
-				8C4874BF25A219E500F47368 /* Protocols */,
 				8C551A4025939D9200B84C69 /* Assets */,
 			);
 			path = AppleMusic;
@@ -183,8 +165,8 @@
 		8C551A3F25939D7200B84C69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8C48751525A333F400F47368 /* SearchCollectionViewCell.swift */,
 				8C48751625A333F400F47368 /* SearchCollectionViewController.swift */,
+				8C48751525A333F400F47368 /* SearchCollectionViewCell.swift */,
 				8C48751425A333F400F47368 /* SearchViewCode.swift */,
 			);
 			path = View;
@@ -246,8 +228,6 @@
 		8C551A5B2593CCCE00B84C69 /* HistoryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8C551A622593CEC200B84C69 /* Model */,
-				8C551A632593CED100B84C69 /* ViewModel */,
 				8C551A5A2593CCBD00B84C69 /* View */,
 				8CBA08C5259C72EC00DA84B1 /* ExtentionTableView */,
 			);
@@ -271,22 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				8C48751125A333E000F47368 /* MainViewModel.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		8C551A622593CEC200B84C69 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8CBA08D0259C7B0E00DA84B1 /* HistoryModel.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		8C551A632593CED100B84C69 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8CBA08D3259C7B8000DA84B1 /* HistoryViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -474,14 +438,11 @@
 				8CBA08CB259C733F00DA84B1 /* HistoryTableViewCell.swift in Sources */,
 				8C4AEF1C2594A3B400F8F772 /* MainTabBarController.swift in Sources */,
 				8C4AEF312594CDC400F8F772 /* Networking.swift in Sources */,
-				8CBA08D4259C7B8000DA84B1 /* HistoryViewModel.swift in Sources */,
 				8C48751725A333F400F47368 /* SearchViewCode.swift in Sources */,
 				8CBA08CE259C759900DA84B1 /* ExTableDelegate.swift in Sources */,
 				8C551A2B2593974D00B84C69 /* AppDelegate.swift in Sources */,
 				8C48750325A2486D00F47368 /* DetailTableViewCell.swift in Sources */,
-				8C4874C425A21A2300F47368 /* ViewProtocol.swift in Sources */,
 				8C4874CD25A21ACE00F47368 /* Song.swift in Sources */,
-				8CBA08D1259C7B0E00DA84B1 /* HistoryModel.swift in Sources */,
 				8CCFC95C2598C73600481E59 /* DetailViewCode.swift in Sources */,
 				8CCFC9582598C6B900481E59 /* DetailViewController.swift in Sources */,
 				8C48752025A3340F00F47368 /* ExDelegate.swift in Sources */,
@@ -499,7 +460,6 @@
 				8C4874CA25A21AA100F47368 /* Album.swift in Sources */,
 				8C551A462593A11400B84C69 /* HistoryViewController.swift in Sources */,
 				8C4874DF25A2314700F47368 /* ItunesAPI.swift in Sources */,
-				8C4874C125A21A0000F47368 /* PresenterProtocol.swift in Sources */,
 				8C4874F825A242EF00F47368 /* CoreData.xcdatamodeld in Sources */,
 				8CBA08C7259C730F00DA84B1 /* ExTableView.swift in Sources */,
 				8CD944B8259BC3CB00344857 /* CMTime + Extention.swift in Sources */,

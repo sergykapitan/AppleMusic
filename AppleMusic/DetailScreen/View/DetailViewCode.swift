@@ -13,10 +13,8 @@ final class DetailViewCode: UIView {
  
     var track: Track! {
         didSet {
-            print("TrackDetailViewCode")
             let string600 = track.image.replacingOccurrences(of: "100x100", with: "600x600")
             guard let url = URL(string: string600) else { return }
-            print(track.url)
             configureDetailView(trackTitle: track.name!, url: url, previewUrl: track.url ?? "")
         }
     }
@@ -125,15 +123,15 @@ final class DetailViewCode: UIView {
     }()
      let butttonNextTrack: UIButton = {
         let button  = UIButton()
-        button.setImage(UIImage(named: "Right"), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "Knob"), for: .highlighted)
+        button.setImage(#imageLiteral(resourceName: "Right"), for: .normal)
+       // button.setImage(#imageLiteral(resourceName: "Knob"), for: .highlighted)
         button.anchor(width: 50 )
         return button
     }()
      let butttonPrevireusTrack: UIButton = {
         let button  = UIButton()
-        button.setImage(UIImage(named: "Left"), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "Knob"), for: .highlighted)
+        button.setImage(#imageLiteral(resourceName: "Right"), for: .normal)
+        button.setTitle("_", for: .normal)
         button.anchor(width: 50 )
         return button
     }()
@@ -162,7 +160,7 @@ final class DetailViewCode: UIView {
         let table = UIView()
         return table
     }()
-    let player: AVPlayer = {
+    var player: AVPlayer = {
         let player = AVPlayer()
         player.automaticallyWaitsToMinimizeStalling = false
         return player
@@ -207,8 +205,7 @@ final class DetailViewCode: UIView {
 
      
     }
-    //
-   //
+ 
     func configureDetailView(trackTitle: String,url: URL,previewUrl: String){
         trackTitleLabel.text = trackTitle
         imageAlbum.sd_setImage(with: url, completed: nil)
@@ -219,7 +216,7 @@ final class DetailViewCode: UIView {
             guard let url = URL(string: previewUrl) else { return }
             let playerItem = AVPlayerItem(url: url)
             player.replaceCurrentItem(with: playerItem)
-            player.play()
+            player.pause()
 
         }
    
