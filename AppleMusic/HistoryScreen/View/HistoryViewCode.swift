@@ -32,18 +32,18 @@ final class HistoryViewCode: UIView {
         let table = UITableView()
         return table
     }()
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        switch viewData {
-        case .initial:
-            print("viewData .inishial")
-        case .success(let success):
-            print("viewData .success = \(success.historySearch)")
-        case .failure(_):
-            print("viewData .failure")
-        }
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        switch viewData {
+//        case .initial:
+//            print("viewData .inishial")
+//        case .success(let success):
+//            print("viewData .success = \(success.historySearch)")
+//        case .failure(_):
+//            print("viewData .failure")
+//        }
+//    }
     
     //MARK - initial
     

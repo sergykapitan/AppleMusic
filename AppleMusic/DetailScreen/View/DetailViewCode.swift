@@ -10,7 +10,16 @@ import SDWebImage
 import AVKit
 
 final class DetailViewCode: UIView {
-    
+ 
+    var track: Track! {
+        didSet {
+            print("TrackDetailViewCode")
+            let string600 = track.image.replacingOccurrences(of: "100x100", with: "600x600")
+            guard let url = URL(string: string600) else { return }
+            print(track.url)
+            configureDetailView(trackTitle: track.name!, url: url, previewUrl: track.url ?? "")
+        }
+    }
     //MARK: - UI
     let cardView: UIView = {
         let view = UIView()
@@ -92,7 +101,7 @@ final class DetailViewCode: UIView {
         label.textAlignment = .right
         return label
     }()
-    private let trackTitleLabel:UILabel = {
+    var trackTitleLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textColor = .black
@@ -111,7 +120,6 @@ final class DetailViewCode: UIView {
      let butttonPlay: UIButton = {
         let button  = UIButton()
         button.setImage(UIImage(named: "pause"), for: .normal)
-       // button.addTarget(self, action: #selector(playTrackSong), for: .touchUpInside)
         button.setImage(#imageLiteral(resourceName: "play"), for: .highlighted)
         return button
     }()
@@ -150,16 +158,20 @@ final class DetailViewCode: UIView {
         return image
     }()
     
-    private let tableView: UIView = {
+     let table: UIView = {
         let table = UIView()
-      //  table.backgroundColor = .blue
-        table.anchor(height: 80)
         return table
     }()
     let player: AVPlayer = {
         let player = AVPlayer()
         player.automaticallyWaitsToMinimizeStalling = false
         return player
+    }()
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = .clear
+        return table
     }()
 
     
@@ -169,6 +181,7 @@ final class DetailViewCode: UIView {
         
         initUI()
         initLayout()
+       
     }
     
     required init?(coder: NSCoder) {
@@ -178,10 +191,12 @@ final class DetailViewCode: UIView {
     private func initUI() {
         backgroundColor = .white
         addSubview(cardView)
+        table.addSubview(tableView)
+        tableView.fillSuperview()
         stackHTherd = UIStackView(arrangedSubviews: [imageVolumeMin,sliderVolume,imageVolumeMax])
         stackHSecond = UIStackView(arrangedSubviews: [butttonPrevireusTrack,butttonPlay,butttonNextTrack])
         stackHFirst = UIStackView(arrangedSubviews: [labelTimestart,labelTimestop])
-        stackVFirst = UIStackView(arrangedSubviews: [imageAlbum,sliderSongPlay,stackHFirst,trackTitleLabel,authorLabel,tableView,stackHSecond,stackHTherd])
+        stackVFirst = UIStackView(arrangedSubviews:[imageAlbum,sliderSongPlay,stackHFirst,trackTitleLabel,authorLabel,table,stackHSecond,stackHTherd])
         stackVFirst.axis = .vertical
         cardView.addSubview(stackVFirst)
     }
@@ -192,9 +207,10 @@ final class DetailViewCode: UIView {
 
      
     }
-    func configureDetailView(trackTitle: String,author: String,url: URL,previewUrl: String){
+    //
+   //
+    func configureDetailView(trackTitle: String,url: URL,previewUrl: String){
         trackTitleLabel.text = trackTitle
-        authorLabel.text = author
         imageAlbum.sd_setImage(with: url, completed: nil)
         playTrack(previewUrl: previewUrl )
         
@@ -206,5 +222,8 @@ final class DetailViewCode: UIView {
             player.play()
 
         }
+   
+    
+
   
 }

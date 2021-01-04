@@ -14,7 +14,8 @@ protocol HistoryViewModelProtocol {
 
 final class HistoryViewModel: HistoryViewModelProtocol {
     var updateViewData: ((HistoryData) -> ())?
-    var history = [Recent]()
+    
+    var history = [CoreTrack]()
     
     init() {
         updateViewData?(.initial)
@@ -25,7 +26,7 @@ final class HistoryViewModel: HistoryViewModelProtocol {
     func startFetch() {
         updateViewData?(.initial)
         updateViewData?(.success(HistoryData.History(historySearch: "111")))
-        history = CoreDataService.shared.fetch()
+       // history = CoreDataService.shared.fetch()
         print(history.count)
     }
     

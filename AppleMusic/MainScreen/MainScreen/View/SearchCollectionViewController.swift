@@ -6,23 +6,31 @@
 //
 
 import UIKit
+import Foundation
 import CoreData
 
 
-class SearchCollectionViewController: UIViewController {
+class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
     
-    var viewDataCell: ViewData = .initial {
-        didSet {
-            DispatchQueue.main.async {
-                   self.reloadView()
-            }
-        }
+    var albums: [Album]? {
+      didSet {
+        searchView.collectionView.reloadData()
+      }
+    }
+    
+    var history = [CoreTrack]()
+    
+    var isSearchBarEmpty: Bool {
+        navigationItem.searchController = searchController
+        
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
     var name = [NSManagedObject]()
+    
     let searchView = SearchViewCode()
-    var viewModel: MainViewModelProtocol!
- 
+    let viewModel = ViewModel()
+    
     
     private let refreshControl = UIRefreshControl()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -39,13 +47,12 @@ class SearchCollectionViewController: UIViewController {
         view = searchView
     }
     override func viewDidLoad() {
-        viewModel = MainViewModel()
         super.viewDidLoad()
     
-        updateView()
         
         setupMainView()
         setupSearchBar()
+        setupRecent()
 
     }
     
@@ -63,7 +70,7 @@ class SearchCollectionViewController: UIViewController {
     }
     func makeReguest(searchText: String) {
         searchView.showSpinner()
-        viewModel.startFetch(searchText: searchText)
+        viewModel.get(search: searchText)
     }
    
     func stopSpiners() {
@@ -81,53 +88,30 @@ class SearchCollectionViewController: UIViewController {
         makeReguest(searchText:viewModel.lastRequestName)
        }
     
-    private func updateView() {
-        viewModel.updateViewData = { [weak self] viewData in
-            self?.viewDataCell = viewData
-        }
-    }
     private func reloadView() {
         searchView.collectionView.reloadData()
     }
+    func setupRecent() {
+        
+//      if CoreDataService.shared.entityIsEmpty() {
+//        history = [CoreTrack]()
+//      } else {
+//        history = CoreDataService.shared.fetch()
+//      }
+    }
 
 }
-extension SearchCollectionViewController: TrackMovingDelegate {
-    func moveBackForPreviousTrack() -> TrackData.TrackOne? {
-        return getTrack(isForward: true)
-    }
-    
-    func moveForwardForPreviousTrack() -> TrackData.TrackOne? {
-        return getTrack(isForward: false)
-    }
-    
 
-    private func getTrack(isForward: Bool) -> TrackData.TrackOne? {
-        guard let indexPath = searchView.collectionView.indexPathsForSelectedItems else { return nil}
-        let index = indexPath.first!
-        searchView.collectionView.deselectItem(at: index, animated: true)
-        var nextIndexPath: IndexPath!
-        
-        if isForward {
-            nextIndexPath = IndexPath(row: index.row + 1, section: index.section)
-        } else {
-            nextIndexPath = IndexPath(row: index.row - 1, section: index.section)
-        }
-        
-        searchView.collectionView.selectItem(at: nextIndexPath, animated: true, scrollPosition: .top)
-        var trackOne: TrackData.TrackOne?
-        switch viewDataCell {
-        case .success(let success):
-            let cellModel = success.results[index.row + 1]
-            trackOne = reversData(viewData: cellModel)
-            return reversData(viewData: cellModel)
-        case .initial:
-            break
-        case .loading(_):
-            break
-        case .failure(_):
-            break
-        }
-        return trackOne
-    }
+//UISearchBarDelegate
 
+extension SearchCollectionViewController {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    guard let searchText = searchBar.text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+    
+        viewModel.get(search: searchText)
+        
+        navigationItem.searchController?.isActive = false
+        
+    }
 }

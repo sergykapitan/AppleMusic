@@ -12,6 +12,18 @@ import SDWebImage
 final class SearchCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Properties
+    static let identifier = "AlbumCollectionCell"
+    
+    var album: Album! {
+        didSet {
+            albumNameLabel.text = album.title
+            album.getImage { [weak self] img in
+                self?.photoImage.image = img
+            }
+        }
+    }
+    
+    
     //MARK: - UI
     private let photoImage: UIImageView = {
         let imageView = UIImageView()

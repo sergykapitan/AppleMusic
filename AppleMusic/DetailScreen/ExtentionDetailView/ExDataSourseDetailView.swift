@@ -10,14 +10,35 @@ import UIKit
 
 extension DetailViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == 0 ? 1 : viewModel.tracks.count
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reuseIDTable, for: indexPath)
+        switch indexPath.section {
+        
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell 
+            cell.album = viewModel.currentAlbum
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.identifier, for: indexPath) as! TrackTableViewCell
+            let track = viewModel.tracks[indexPath.row]
+            cell.track = track
+            detailView.track = track
+            cell.button.tag = indexPath.row
+            cell.button.addTarget(self, action: #selector(refreshAlbumList(sender:)), for: .touchUpInside)
+
+
+            return cell
+        }
        
-        return cell
     }
     
     

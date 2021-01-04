@@ -11,7 +11,7 @@ class HistoryViewController: UIViewController {
     
     private var viewModel: HistoryViewModelProtocol!
     let historyView = HistoryViewCode()
-    var history = [Recent]()
+    //var history = [CoreTrack]()
         
  
 
@@ -26,7 +26,7 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         updateView()
-        makeTableView()
+       // makeTableView()
         viewModel.startFetch()
     }
     

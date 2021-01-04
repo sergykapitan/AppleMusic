@@ -8,7 +8,14 @@
 import UIKit
 
 final class SearchViewCode: UIView {
-
+    
+    var viewModel = ViewModel() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 
     //MARK: - UI
     private let spinner: UIActivityIndicatorView = {
@@ -37,6 +44,7 @@ final class SearchViewCode: UIView {
         
         initUI()
         initLayout()
+        setupGrid()
     }
     
     required init?(coder: NSCoder) {
@@ -70,6 +78,13 @@ final class SearchViewCode: UIView {
     func hideSpinner(withDelay delay: TimeInterval) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [unowned self] in
             self.hideSpinner()
+        }
+    }
+    private func setupGrid() {
+        NotificationCenter.default.addObserver(forName: Notification.Name.AlbumNotification, object: nil, queue: .main) { note in
+            guard let userInfo = note.userInfo as? [String:ViewModel] else { return }
+            
+            self.viewModel = userInfo["ViewModel"]!
         }
     }
    
