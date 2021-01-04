@@ -72,6 +72,7 @@ class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
         searchView.showSpinner()
         viewModel.get(search: searchText)
         print(searchText)
+
         
     }
    

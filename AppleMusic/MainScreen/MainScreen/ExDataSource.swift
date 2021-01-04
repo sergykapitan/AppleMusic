@@ -22,6 +22,7 @@ extension SearchCollectionViewController: UICollectionViewDataSource {
         let album = viewModel.albums[indexPath.row]
         
         cell.album = album
+        stopSpiners()
         return cell
     }
 }
