@@ -12,21 +12,20 @@ import CoreData
 
 class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
     
-    var albums: [Album]? {
-      didSet {
-        searchView.collectionView.reloadData()
-      }
-    }
+//    var albums: [Album]? {
+//      didSet {
+//        searchView.collectionView.reloadData()
+//      }
+//    }
     
     var history = [CoreTrack]()
     
     var isSearchBarEmpty: Bool {
         navigationItem.searchController = searchController
-        
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    var name = [NSManagedObject]()
+   // var name = [NSManagedObject]()
     
     let searchView = SearchViewCode()
     let viewModel = ViewModel()
@@ -48,11 +47,8 @@ class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
         setupMainView()
         setupSearchBar()
-        setupRecent()
 
     }
     
@@ -71,11 +67,8 @@ class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
     func makeReguest(searchText: String) {
         searchView.showSpinner()
         viewModel.get(search: searchText)
-        print(searchText)
 
-        
     }
-   
     func stopSpiners() {
         searchView.hideSpinner(withDelay: 0.2)
         refreshControl.endRefreshing()
@@ -85,28 +78,17 @@ class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
-    
+    private func reloadView() {
+            searchView.collectionView.reloadData()
+        }
+
     //MARK: - Selectors
     @objc private func refreshAlbumList() {
         makeReguest(searchText:viewModel.lastRequestName)
        }
-    
-    private func reloadView() {
-        searchView.collectionView.reloadData()
-    }
-    func setupRecent() {
-        
-//      if CoreDataService.shared.entityIsEmpty() {
-//        history = [CoreTrack]()
-//      } else {
-//        history = CoreDataService.shared.fetch()
-//      }
-    }
-
 }
 
-//UISearchBarDelegate
-
+   //MARK: - UISearchBarDelegate
 extension SearchCollectionViewController {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
