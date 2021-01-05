@@ -171,7 +171,8 @@
 				8C48751525A333F400F47368 /* SearchCollectionViewCell.swift */,
 				8C48751425A333F400F47368 /* SearchViewCode.swift */,
 			);
-			path = View;
+			name = View;
+			path = MainScreen/View;
 			sourceTree = "<group>";
 		};
 		8C551A4025939D9200B84C69 /* Assets */ = {
