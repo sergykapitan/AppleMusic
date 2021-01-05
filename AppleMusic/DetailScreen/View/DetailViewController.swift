@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
     
     var viewModel: ViewModel!
     let detailView = DetailViewCode()
-   // var nextSelected: Int? //optional - could be nil
     var audioPlayer: AVAudioPlayer!
     
     //MARK: - LifeCicle
@@ -38,8 +37,6 @@ class DetailViewController: UIViewController {
         setupDetail()
         monitorStartTime()
         observerPlayerCirrentTime()
-    
-        
     }
 
     private func makeTableView() {

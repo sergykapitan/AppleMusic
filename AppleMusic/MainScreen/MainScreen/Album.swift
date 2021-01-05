@@ -40,19 +40,6 @@ class Album: Decodable {
     }
     
     func getImage(completion: @escaping (UIImage?) -> Void) {
-        
-//        guard let url = URL(string: image) else {
-//            completion(nil)
-//            return
-//        }
-//
-//        URLSession.shared.dataTask(with: url ) { (dat, _, _) in
-//            if let data = dat {
-//                DispatchQueue.main.async {
-//                    completion(UIImage(data: data))
-//                }
-//            }
-//        }.resume()
         cache.downloadFrom(endpoint: image) { dat in
             if let data = dat {
                 DispatchQueue.main.async {

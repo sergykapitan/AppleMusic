@@ -10,23 +10,16 @@ protocol TrackDelegate: class {
     func update()
 }
 
-protocol PlaylistDelegate: class {
-    func update()
-}
-
-
-
 class ViewModel {
     
-    /*ViewModel - main goal is to only allow the view controller to worry about the views
+    /*ViewModel - основная цель позволить Controller беспокоиться о View
      1. Data
      2. Service Calls
      3. Business Logic
-     4. Data Binding - connecting a view to a data source - Property Observer & Communication Pattern
+     4. Data Binding - подключение View к источнику данных - Property Observer & Communication Pattern
     */
     
     weak var delegate: TrackDelegate?
-    weak var playlistDelegate: PlaylistDelegate?
     
     var albums = [Album]() {
         didSet {
@@ -37,20 +30,16 @@ class ViewModel {
     var lastRequestName : String = "lil+wayne"
     
     var track: Track!
-    
-    
+        
     func delete(track: Track) {
         CoreManager.shared.delete(track)
     }
-    
     
     var tracks = [Track]() {
         didSet {
             delegate?.update()
         }
     }
-    
-
     
     var currentAlbum: Album! {
         didSet {
@@ -61,7 +50,6 @@ class ViewModel {
     }
     
     func get(search: String) {
-        
         ItunesService.shared.getAlbums(for: search) { [weak self] albms in
             self?.albums = albms
             print("Album Count: \(albms.count)")
