@@ -9,6 +9,8 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
     
+    static let reuseID = "HistoryTableViewCell"
+    
     var titleLabel: UILabel =  {
         let label = UILabel()
         return label

@@ -27,7 +27,7 @@ class HistoryViewController: UIViewController {
     private func makeTableView() {
         historyView.tableView.dataSource = self
         historyView.tableView.delegate = self
-        historyView.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "HistoryTableViewCell")
+        historyView.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.reuseID)
     }
 
 }

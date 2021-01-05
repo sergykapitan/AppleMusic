@@ -13,11 +13,26 @@ final class DetailViewCode: UIView {
  
     var track: Track! {
         didSet {
-            let string600 = track.image.replacingOccurrences(of: "100x100", with: "600x600")
+            guard let tr = track else { return }
+            
+            let string600 = tr.image.replacingOccurrences(of: "100x100", with: "600x600")
             guard let url = URL(string: string600) else { return }
-            configureDetailView(trackTitle: track.name!, url: url, previewUrl: track.url ?? "")
+            configureDetailView(trackTitle: tr.name!, url: url, previewUrl: tr.url ?? "")
+                
         }
     }
+    var nextSelected: Int? //optional - could be nil
+    
+    var album: Album! {
+        didSet {
+            
+            let string600 = album.image.replacingOccurrences(of: "100x100", with: "600x600")
+            guard let url = URL(string: string600) else { return }
+            configureDetailView(trackTitle: album.artist, url: url, previewUrl: album.url ?? "")
+
+        }
+    }
+    
     //MARK: - UI
     let cardView: UIView = {
         let view = UIView()
@@ -121,17 +136,15 @@ final class DetailViewCode: UIView {
         button.setImage(#imageLiteral(resourceName: "play"), for: .highlighted)
         return button
     }()
-     let butttonNextTrack: UIButton = {
+     let buttonNextTrack: UIButton = {
         let button  = UIButton()
         button.setImage(#imageLiteral(resourceName: "Right"), for: .normal)
-       // button.setImage(#imageLiteral(resourceName: "Knob"), for: .highlighted)
         button.anchor(width: 50 )
         return button
     }()
-     let butttonPrevireusTrack: UIButton = {
+     let buttonPreviousTrack: UIButton = {
         let button  = UIButton()
-        button.setImage(#imageLiteral(resourceName: "Right"), for: .normal)
-        button.setTitle("_", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "Left"), for: .normal)
         button.anchor(width: 50 )
         return button
     }()
@@ -192,7 +205,7 @@ final class DetailViewCode: UIView {
         table.addSubview(tableView)
         tableView.fillSuperview()
         stackHTherd = UIStackView(arrangedSubviews: [imageVolumeMin,sliderVolume,imageVolumeMax])
-        stackHSecond = UIStackView(arrangedSubviews: [butttonPlay])
+        stackHSecond = UIStackView(arrangedSubviews: [buttonPreviousTrack,butttonPlay,buttonNextTrack])
         stackHFirst = UIStackView(arrangedSubviews: [labelTimestart,labelTimestop])
         stackVFirst = UIStackView(arrangedSubviews:[imageAlbum,sliderSongPlay,stackHFirst,trackTitleLabel,table,stackHSecond,stackHTherd])
         stackVFirst.axis = .vertical

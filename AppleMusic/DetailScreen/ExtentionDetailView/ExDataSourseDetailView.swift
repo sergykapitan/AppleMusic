@@ -22,20 +22,16 @@ extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell 
-            cell.album = viewModel.currentAlbum
+            let album = viewModel.currentAlbum
+            cell.album = album
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.identifier, for: indexPath) as! TrackTableViewCell
             let track = viewModel.tracks[indexPath.row]
             cell.track = track
             detailView.track = track
-            cell.button.tag = indexPath.row
-         //   cell.button.addTarget(self, action: #selector(refreshAlbumList(sender:)), for: .touchUpInside)
-
-
             return cell
         }
        
