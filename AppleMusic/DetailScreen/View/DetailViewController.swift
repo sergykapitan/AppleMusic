@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     
     var viewModel: ViewModel!
     let detailView = DetailViewCode()
-    var audioPlayer: AVAudioPlayer!
+
 
     //MARK: - LifeCicle
     override func loadView() {
@@ -39,11 +39,7 @@ class DetailViewController: UIViewController {
         observerPlayerCirrentTime()
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-       // let index: IndexPath = IndexPath(row: 0, section: 1)
-       // detailView.tableView.selectRow(at: index, animated: true, scrollPosition: .none)
-    }
+
 
     private func makeTableView() {
         detailView.tableView.dataSource = self
@@ -70,23 +66,14 @@ class DetailViewController: UIViewController {
     @objc func playNextTrack(sender: UIButton) {
         let track = getTrack(isForwardTrack: true)
         detailView.track = track
-     //   if detailView.player.timeControlStatus == .paused {
-            detailView.player.pause()
-            detailView.player.play()
-            detailView.butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
-            largeTrackImage()
-    //    } else {
-         //   detailView.player.pause()
-         //   detailView.butttonPlay.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-          //  reduceTrackImage()
-    //    }
+        detailView.player.play()
+        detailView.butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
     }
     @objc func playPreviousTrack(_ sender: UIButton) {
         let track = getTrack(isForwardTrack: false)
         detailView.track = track
         detailView.player.play()
         detailView.butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
-        largeTrackImage()
     }
 
     @objc func changeVolumeSlider(_ sender: UISlider) {

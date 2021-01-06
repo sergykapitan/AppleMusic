@@ -9,6 +9,7 @@ import Foundation
 import AVKit
 
 extension CMTime {
+    
     func toDisplayString() -> String {
         guard !CMTimeGetSeconds(self).isNaN else { return ""}
         let totalSecond = Int(CMTimeGetSeconds(self))

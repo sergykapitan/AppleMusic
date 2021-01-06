@@ -12,7 +12,7 @@ import SDWebImage
 final class SearchCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Properties
-    static let identifier = "AlbumCollectionCell"
+  //  static let identifier = "AlbumCollectionCell"
     
     var album: Album! {
         didSet {

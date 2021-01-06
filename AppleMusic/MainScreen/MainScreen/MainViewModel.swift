@@ -50,6 +50,7 @@ class ViewModel {
     }
     
     func get(search: String) {
+        lastRequestName = search
         ItunesService.shared.getAlbums(for: search) { [weak self] albms in
             self?.albums = albms
         }

@@ -14,19 +14,21 @@ final class DetailViewCode: UIView {
     var track: Track! {
         didSet {
             guard let tr = track else { return }
-            let string600 = tr.image.replacingOccurrences(of: "100x100", with: "600x600")
-            guard let url = URL(string: string600) else { return }
-            configureDetailView(trackTitle: tr.name!, url: url, previewUrl: tr.url ?? "")
-                
+ 
+            playTrack(previewUrl: tr.url! )
+            trackTitleLabel.text = tr.name
         }
     }
-    var nextSelected: Int? //optional - could be nil
+
     var album: Album! {
         didSet {
             guard let al = album else { return }
             let index: IndexPath = IndexPath(row: 0, section: 1)
             tableView.selectRow(at: index, animated: true, scrollPosition: .none)
             authorLabel.text = al.artist
+            print(al.image)
+            let url = URL(string: al.image)
+            imageAlbum.sd_setImage(with: url, completed: nil)
         }
     }
     

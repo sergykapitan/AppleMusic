@@ -47,6 +47,5 @@ class Album: Decodable {
                 }
             }
         }
-    }
-    
+    }    
 }

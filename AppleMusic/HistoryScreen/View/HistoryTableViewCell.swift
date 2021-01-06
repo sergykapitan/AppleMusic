@@ -31,11 +31,6 @@ class HistoryTableViewCell: UITableViewCell {
         self.initialize()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     func initialize() {
         
         let titleLabel = UILabel(frame: .zero)
@@ -49,7 +44,6 @@ class HistoryTableViewCell: UITableViewCell {
             self.contentView.centerYAnchor.constraint(equalTo: self.titleLabel.centerYAnchor),
         ])
         
-       //self.titleLabel.font = UIFont.systemFont(ofSize: 64)
     }
     override func prepareForReuse() {
            super.prepareForReuse()

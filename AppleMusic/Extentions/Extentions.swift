@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension UIView {
     
     func fillFull(for view: UIView, insets: UIEdgeInsets = .zero) {
@@ -97,12 +96,3 @@ extension Optional: OptionalType {
     }
 }
 
-//extension SearchCollectionViewController {
-//    func reversData(viewData:ViewData.Track) -> DetailModel.TrackOne {
-//        return DetailModel.TrackOne(trackName: viewData.trackName,
-//                                  artistName: viewData.artistName,
-//                                  collectionName: viewData.collectionName,
-//                                  artworkUrl100: viewData.artworkUrl100,
-//                                  previewUrl: viewData.previewUrl)
-//    }
-//}
