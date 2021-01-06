@@ -52,7 +52,6 @@ class ViewModel {
     func get(search: String) {
         ItunesService.shared.getAlbums(for: search) { [weak self] albms in
             self?.albums = albms
-            print("Album Count: \(albms.count)")
         }
         
     }   

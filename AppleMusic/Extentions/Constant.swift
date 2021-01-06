@@ -16,9 +16,9 @@ struct Constants {
     static let reuseID = "reuseIdentifier"
     static let reuseIDTable = "reuseIdentifierTable"
     
-    static let scheme = "https"
-    static let host = "itunes.apple.com"
-    static let path = "/search" 
+//    static let scheme = "https"
+//    static let host = "itunes.apple.com"
+//    static let path = "/search"
    
       //https://itunes.apple.com/search?term=jack+johnson
 }

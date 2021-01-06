@@ -12,11 +12,6 @@ import CoreData
 
 class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
     
-//    var albums: [Album]? {
-//      didSet {
-//        searchView.collectionView.reloadData()
-//      }
-//    }
     
     var history = [CoreTrack]()
     

@@ -17,7 +17,6 @@
 		8C4874E225A2318900F47368 /* ItunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874E125A2318900F47368 /* ItunesService.swift */; };
 		8C4874E925A23A5500F47368 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874E825A23A5500F47368 /* Notification+Name.swift */; };
 		8C4874EC25A23AB100F47368 /* ViewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874EB25A23AB100F47368 /* ViewController+Extention.swift */; };
-		8C4874EF25A23B8000F47368 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874EE25A23B8000F47368 /* Int+Extension.swift */; };
 		8C4874F825A242EF00F47368 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874F625A242EF00F47368 /* CoreData.xcdatamodeld */; };
 		8C48750325A2486D00F47368 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48750225A2486D00F47368 /* DetailTableViewCell.swift */; };
 		8C48750825A24CDD00F47368 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48750725A24CDD00F47368 /* TrackTableViewCell.swift */; };
@@ -29,7 +28,6 @@
 		8C48751F25A3340F00F47368 /* ExDelegateFlowLayOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48751C25A3340F00F47368 /* ExDelegateFlowLayOut.swift */; };
 		8C48752025A3340F00F47368 /* ExDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48751D25A3340F00F47368 /* ExDelegate.swift */; };
 		8C4AEF1C2594A3B400F8F772 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4AEF1B2594A3B400F8F772 /* MainTabBarController.swift */; };
-		8C4AEF312594CDC400F8F772 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4AEF302594CDC400F8F772 /* Networking.swift */; };
 		8C551A2B2593974D00B84C69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C551A2A2593974D00B84C69 /* AppDelegate.swift */; };
 		8C551A2D2593974D00B84C69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C551A2C2593974D00B84C69 /* SceneDelegate.swift */; };
 		8C551A342593974E00B84C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C551A332593974E00B84C69 /* Assets.xcassets */; };
@@ -60,7 +58,6 @@
 		8C4874E125A2318900F47368 /* ItunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesService.swift; sourceTree = "<group>"; };
 		8C4874E825A23A5500F47368 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		8C4874EB25A23AB100F47368 /* ViewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extention.swift"; sourceTree = "<group>"; };
-		8C4874EE25A23B8000F47368 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		8C4874F725A242EF00F47368 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		8C48750225A2486D00F47368 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		8C48750725A24CDD00F47368 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,7 +69,6 @@
 		8C48751C25A3340F00F47368 /* ExDelegateFlowLayOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExDelegateFlowLayOut.swift; path = MainScreen/ExDelegateFlowLayOut.swift; sourceTree = "<group>"; };
 		8C48751D25A3340F00F47368 /* ExDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExDelegate.swift; path = MainScreen/ExDelegate.swift; sourceTree = "<group>"; };
 		8C4AEF1B2594A3B400F8F772 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		8C4AEF302594CDC400F8F772 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8C551A272593974D00B84C69 /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C551A2A2593974D00B84C69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C551A2C2593974D00B84C69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +116,6 @@
 		8C4AEF2F2594CD9800F8F772 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				8C4AEF302594CDC400F8F772 /* Networking.swift */,
 				8C4874DB25A2311F00F47368 /* CacheManager.swift */,
 				8C4874D825A2310400F47368 /* CoreManager.swift */,
 				8C4874DE25A2314700F47368 /* ItunesAPI.swift */,
@@ -200,7 +195,6 @@
 				8C551A532593B2DB00B84C69 /* Constant.swift */,
 				8C4874E825A23A5500F47368 /* Notification+Name.swift */,
 				8C4874EB25A23AB100F47368 /* ViewController+Extention.swift */,
-				8C4874EE25A23B8000F47368 /* Int+Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -439,7 +433,6 @@
 				8C48751825A333F400F47368 /* SearchCollectionViewCell.swift in Sources */,
 				8CBA08CB259C733F00DA84B1 /* HistoryTableViewCell.swift in Sources */,
 				8C4AEF1C2594A3B400F8F772 /* MainTabBarController.swift in Sources */,
-				8C4AEF312594CDC400F8F772 /* Networking.swift in Sources */,
 				8C48751725A333F400F47368 /* SearchViewCode.swift in Sources */,
 				8CBA08CE259C759900DA84B1 /* ExTableDelegate.swift in Sources */,
 				8C551A2B2593974D00B84C69 /* AppDelegate.swift in Sources */,
@@ -457,7 +450,6 @@
 				8C48751F25A3340F00F47368 /* ExDelegateFlowLayOut.swift in Sources */,
 				8C4874DC25A2311F00F47368 /* CacheManager.swift in Sources */,
 				8CCFC96A2598D24900481E59 /* ExDataSourseDetailView.swift in Sources */,
-				8C4874EF25A23B8000F47368 /* Int+Extension.swift in Sources */,
 				8C4874CA25A21AA100F47368 /* Album.swift in Sources */,
 				8C551A462593A11400B84C69 /* HistoryViewController.swift in Sources */,
 				8C4874DF25A2314700F47368 /* ItunesAPI.swift in Sources */,
