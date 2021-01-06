@@ -18,9 +18,7 @@ extension SearchCollectionViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseID, for: indexPath) as? SearchCollectionViewCell else { return SearchCollectionViewCell()}
-        
-        let album = viewModel.albums[indexPath.row]
-        
+        let album = viewModel.albums[indexPath.row]        
         cell.album = album
         stopSpiners()
         return cell

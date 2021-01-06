@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     var viewModel: ViewModel!
     let detailView = DetailViewCode()
     var audioPlayer: AVAudioPlayer!
-    
+
     //MARK: - LifeCicle
     override func loadView() {
         super.loadView()
@@ -37,6 +37,12 @@ class DetailViewController: UIViewController {
         setupDetail()
         monitorStartTime()
         observerPlayerCirrentTime()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+       // let index: IndexPath = IndexPath(row: 0, section: 1)
+       // detailView.tableView.selectRow(at: index, animated: true, scrollPosition: .none)
     }
 
     private func makeTableView() {
@@ -64,15 +70,16 @@ class DetailViewController: UIViewController {
     @objc func playNextTrack(sender: UIButton) {
         let track = getTrack(isForwardTrack: true)
         detailView.track = track
-        if detailView.player.timeControlStatus == .paused {
+     //   if detailView.player.timeControlStatus == .paused {
+            detailView.player.pause()
             detailView.player.play()
             detailView.butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             largeTrackImage()
-        } else {
-            detailView.player.pause()
-            detailView.butttonPlay.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-            reduceTrackImage()
-        }
+    //    } else {
+         //   detailView.player.pause()
+         //   detailView.butttonPlay.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+          //  reduceTrackImage()
+    //    }
     }
     @objc func playPreviousTrack(_ sender: UIButton) {
         let track = getTrack(isForwardTrack: false)
@@ -151,7 +158,6 @@ class DetailViewController: UIViewController {
     private func getTrack(isForwardTrack: Bool) -> Track? {
         guard let indexPath = detailView.tableView.indexPathForSelectedRow else { return nil }
         let tracks = viewModel.tracks
-        print(tracks.count)
         var nextIndexPath: IndexPath!
         if isForwardTrack {
             nextIndexPath = IndexPath(row: indexPath.row + 1, section: 1)
@@ -165,7 +171,6 @@ class DetailViewController: UIViewController {
            }
         }
         detailView.tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .middle)
-        print("nextIndexPath = \(nextIndexPath.row)")
         let track = tracks[nextIndexPath.row]
         return track
     

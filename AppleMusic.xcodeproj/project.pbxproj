@@ -147,6 +147,8 @@
 			children = (
 				8C551A4125939DA900B84C69 /* App */,
 				8C9622692598944000F1E47F /* MainTabBarController */,
+				8C551A5C2593CD7400B84C69 /* Model */,
+				8C551A612593CE9E00B84C69 /* ViewModel */,
 				8C551A592593CC7E00B84C69 /* MainScreen */,
 				8CCFC9562598C67000481E59 /* DetailScreen */,
 				8C551A5B2593CCCE00B84C69 /* HistoryScreen */,
@@ -202,8 +204,6 @@
 		8C551A592593CC7E00B84C69 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8C551A5C2593CD7400B84C69 /* Model */,
-				8C551A612593CE9E00B84C69 /* ViewModel */,
 				8C551A3F25939D7200B84C69 /* View */,
 				8C9622552598745500F1E47F /* Extentions */,
 			);
@@ -239,7 +239,7 @@
 				8C4874F625A242EF00F47368 /* CoreData.xcdatamodeld */,
 			);
 			name = Model;
-			path = MainScreen;
+			path = MainScreen/MainScreen;
 			sourceTree = "<group>";
 		};
 		8C551A612593CE9E00B84C69 /* ViewModel */ = {
@@ -248,6 +248,7 @@
 				8C48751125A333E000F47368 /* MainViewModel.swift */,
 			);
 			name = ViewModel;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		8C9622552598745500F1E47F /* Extentions */ = {

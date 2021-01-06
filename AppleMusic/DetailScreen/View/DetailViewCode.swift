@@ -14,7 +14,6 @@ final class DetailViewCode: UIView {
     var track: Track! {
         didSet {
             guard let tr = track else { return }
-            
             let string600 = tr.image.replacingOccurrences(of: "100x100", with: "600x600")
             guard let url = URL(string: string600) else { return }
             configureDetailView(trackTitle: tr.name!, url: url, previewUrl: tr.url ?? "")
@@ -22,14 +21,12 @@ final class DetailViewCode: UIView {
         }
     }
     var nextSelected: Int? //optional - could be nil
-    
     var album: Album! {
         didSet {
-            
-            let string600 = album.image.replacingOccurrences(of: "100x100", with: "600x600")
-            guard let url = URL(string: string600) else { return }
-            configureDetailView(trackTitle: album.artist, url: url, previewUrl: album.url ?? "")
-
+            guard let al = album else { return }
+            let index: IndexPath = IndexPath(row: 0, section: 1)
+            tableView.selectRow(at: index, animated: true, scrollPosition: .none)
+            authorLabel.text = al.artist
         }
     }
     
@@ -207,7 +204,7 @@ final class DetailViewCode: UIView {
         stackHTherd = UIStackView(arrangedSubviews: [imageVolumeMin,sliderVolume,imageVolumeMax])
         stackHSecond = UIStackView(arrangedSubviews: [buttonPreviousTrack,butttonPlay,buttonNextTrack])
         stackHFirst = UIStackView(arrangedSubviews: [labelTimestart,labelTimestop])
-        stackVFirst = UIStackView(arrangedSubviews:[imageAlbum,sliderSongPlay,stackHFirst,trackTitleLabel,table,stackHSecond,stackHTherd])
+        stackVFirst = UIStackView(arrangedSubviews:[imageAlbum,sliderSongPlay,stackHFirst,authorLabel,trackTitleLabel,table,stackHSecond,stackHTherd])
         stackVFirst.axis = .vertical
         cardView.addSubview(stackVFirst)
     }
@@ -232,8 +229,5 @@ final class DetailViewCode: UIView {
             player.pause()
 
         }
-   
-    
-
   
 }

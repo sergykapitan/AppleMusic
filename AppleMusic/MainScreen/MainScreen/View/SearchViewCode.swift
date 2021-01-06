@@ -83,10 +83,8 @@ final class SearchViewCode: UIView {
     private func setupGrid() {
         NotificationCenter.default.addObserver(forName: Notification.Name.AlbumNotification, object: nil, queue: .main) { note in
             guard let userInfo = note.userInfo as? [String:ViewModel] else { return }
-
             self.viewModel = userInfo["ViewModel"]!
         }
-    }
-   
+    }   
 
 }
