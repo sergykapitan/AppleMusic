@@ -8,15 +8,16 @@
 import UIKit
 import SDWebImage
 import AVKit
+import AVFoundation
+
 
 final class DetailViewCode: UIView {
  
     var track: Track! {
         didSet {
-            guard let tr = track else { return }
- 
-            playTrack(previewUrl: tr.url! )
-            trackTitleLabel.text = tr.name
+            let url = URL(string: track.image)
+            guard let name = track.name, let urlImage = url,let urlTrack = track.url else { return }
+            configureDetailView(trackTitle: name, url: urlImage, previewUrl: urlTrack)
         }
     }
 
@@ -26,7 +27,6 @@ final class DetailViewCode: UIView {
             let index: IndexPath = IndexPath(row: 0, section: 1)
             tableView.selectRow(at: index, animated: true, scrollPosition: .none)
             authorLabel.text = al.artist
-            print(al.image)
             let url = URL(string: al.image)
             imageAlbum.sd_setImage(with: url, completed: nil)
         }
@@ -172,11 +172,12 @@ final class DetailViewCode: UIView {
         let table = UIView()
         return table
     }()
+   
     var player: AVPlayer = {
-        let player = AVPlayer()
-        player.automaticallyWaitsToMinimizeStalling = false
-        return player
-    }()
+            let player = AVPlayer()
+            player.automaticallyWaitsToMinimizeStalling = false
+            return player
+        }()
     let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -188,10 +189,8 @@ final class DetailViewCode: UIView {
     // MARK: - Init
     init() {
         super.init(frame: CGRect.zero)
-        
         initUI()
         initLayout()
-       
     }
     
     required init?(coder: NSCoder) {
@@ -209,6 +208,7 @@ final class DetailViewCode: UIView {
         stackVFirst = UIStackView(arrangedSubviews:[imageAlbum,sliderSongPlay,stackHFirst,authorLabel,trackTitleLabel,table,stackHSecond,stackHTherd])
         stackVFirst.axis = .vertical
         cardView.addSubview(stackVFirst)
+        player.automaticallyWaitsToMinimizeStalling = false
     }
     
     private func initLayout() {
@@ -219,17 +219,19 @@ final class DetailViewCode: UIView {
     }
  
     func configureDetailView(trackTitle: String,url: URL,previewUrl: String){
+        
         trackTitleLabel.text = trackTitle
         imageAlbum.sd_setImage(with: url, completed: nil)
         playTrack(previewUrl: previewUrl )
         
     }
-         func playTrack(previewUrl: String) {
-            guard let url = URL(string: previewUrl) else { return }
-            let playerItem = AVPlayerItem(url: url)
-            player.replaceCurrentItem(with: playerItem)
-            player.pause()
-
-        }
-  
+    
+    func playTrack(previewUrl: String) {
+        guard let url = URL(string: previewUrl) else { return }
+        let playerItem = AVPlayerItem(url: url)
+        player.replaceCurrentItem(with: playerItem)
+        player.pause()
+        
+    }
+    
 }

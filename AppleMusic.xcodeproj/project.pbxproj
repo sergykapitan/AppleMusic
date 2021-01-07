@@ -12,7 +12,6 @@
 		8C4874CA25A21AA100F47368 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C925A21AA100F47368 /* Album.swift */; };
 		8C4874D625A2307500F47368 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874D525A2307500F47368 /* Track.swift */; };
 		8C4874D925A2310400F47368 /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874D825A2310400F47368 /* CoreManager.swift */; };
-		8C4874DC25A2311F00F47368 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874DB25A2311F00F47368 /* CacheManager.swift */; };
 		8C4874DF25A2314700F47368 /* ItunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874DE25A2314700F47368 /* ItunesAPI.swift */; };
 		8C4874E225A2318900F47368 /* ItunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874E125A2318900F47368 /* ItunesService.swift */; };
 		8C4874E925A23A5500F47368 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874E825A23A5500F47368 /* Notification+Name.swift */; };
@@ -53,7 +52,6 @@
 		8C4874C925A21AA100F47368 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8C4874D525A2307500F47368 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		8C4874D825A2310400F47368 /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
-		8C4874DB25A2311F00F47368 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		8C4874DE25A2314700F47368 /* ItunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAPI.swift; sourceTree = "<group>"; };
 		8C4874E125A2318900F47368 /* ItunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesService.swift; sourceTree = "<group>"; };
 		8C4874E825A23A5500F47368 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 		8C4AEF2F2594CD9800F8F772 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				8C4874DB25A2311F00F47368 /* CacheManager.swift */,
 				8C4874D825A2310400F47368 /* CoreManager.swift */,
 				8C4874DE25A2314700F47368 /* ItunesAPI.swift */,
 				8C4874E125A2318900F47368 /* ItunesService.swift */,
@@ -163,8 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				8C48751625A333F400F47368 /* SearchCollectionViewController.swift */,
-				8C48751525A333F400F47368 /* SearchCollectionViewCell.swift */,
 				8C48751425A333F400F47368 /* SearchViewCode.swift */,
+				8C48751525A333F400F47368 /* SearchCollectionViewCell.swift */,
 			);
 			name = View;
 			path = MainScreen/View;
@@ -449,7 +446,6 @@
 				8C551A4F2593B0A400B84C69 /* Extentions.swift in Sources */,
 				8C48751925A333F400F47368 /* SearchCollectionViewController.swift in Sources */,
 				8C48751F25A3340F00F47368 /* ExDelegateFlowLayOut.swift in Sources */,
-				8C4874DC25A2311F00F47368 /* CacheManager.swift in Sources */,
 				8CCFC96A2598D24900481E59 /* ExDataSourseDetailView.swift in Sources */,
 				8C4874CA25A21AA100F47368 /* Album.swift in Sources */,
 				8C551A462593A11400B84C69 /* HistoryViewController.swift in Sources */,

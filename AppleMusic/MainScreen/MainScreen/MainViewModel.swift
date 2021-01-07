@@ -29,15 +29,19 @@ class ViewModel {
     }
     var lastRequestName : String = "lil+wayne"
     
-    var track: Track!
-        
-    func delete(track: Track) {
-        CoreManager.shared.delete(track)
+    func delete(text: History) {
+        CoreManager.shared.deleteText(text)
+        delegate?.update()
+    }
+    func save(text: History) {
+        CoreManager.shared.save(text)
+        delegate?.update()
     }
     
     var tracks = [Track]() {
         didSet {
             delegate?.update()
+            
         }
     }
     
@@ -53,6 +57,7 @@ class ViewModel {
         lastRequestName = search
         ItunesService.shared.getAlbums(for: search) { [weak self] albms in
             self?.albums = albms
+            
         }
         
     }   

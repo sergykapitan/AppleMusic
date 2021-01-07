@@ -22,6 +22,4 @@ extension HistoryViewController: UITableViewDataSource {
         cell.titleLabel.text = history[indexPath.row].searchText
         return cell
     }
-    
-    
 }

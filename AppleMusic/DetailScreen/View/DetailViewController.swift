@@ -9,15 +9,15 @@
 import UIKit
 import Foundation
 import AVKit
-
+import AVFoundation
 
 
 class DetailViewController: UIViewController {
+    
     //MARK: - Property
     
     var viewModel: ViewModel!
     let detailView = DetailViewCode()
-
 
     //MARK: - LifeCicle
     override func loadView() {
@@ -64,10 +64,13 @@ class DetailViewController: UIViewController {
 
     //MARK: - Selector
     @objc func playNextTrack(sender: UIButton) {
-        let track = getTrack(isForwardTrack: true)
+        let nextTrack = getTrack(isForwardTrack: true)
+        guard let track = nextTrack else { return }
         detailView.track = track
+       // detailView.playTrack(previewUrl: track.url!)
         detailView.player.play()
         detailView.butttonPlay.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        
     }
     @objc func playPreviousTrack(_ sender: UIButton) {
         let track = getTrack(isForwardTrack: false)
@@ -98,7 +101,6 @@ class DetailViewController: UIViewController {
             reduceTrackImage()
         }
     }
-
 
    //MARK: - Animation
     private func largeTrackImage() {
@@ -133,7 +135,7 @@ class DetailViewController: UIViewController {
         }
     }
     private func updateCurrentTimesSlider() {
-        let currentSeconds = CMTimeGetSeconds(detailView.player.currentTime())
+        let currentSeconds = CMTimeGetSeconds((detailView.player.currentTime()) )
         let durationSecond =  CMTimeGetSeconds(detailView.player.currentItem?.duration ?? CMTimeMake(value: 1, timescale: 1))
         let percentage = currentSeconds / durationSecond
         detailView.sliderSongPlay.value = Float(percentage)
@@ -144,25 +146,24 @@ class DetailViewController: UIViewController {
     }
     private func getTrack(isForwardTrack: Bool) -> Track? {
         guard let indexPath = detailView.tableView.indexPathForSelectedRow else { return nil }
-        let tracks = viewModel.tracks
-        var nextIndexPath: IndexPath!
-        if isForwardTrack {
-            nextIndexPath = IndexPath(row: indexPath.row + 1, section: 1)
-            if nextIndexPath.row == tracks.count {
-                nextIndexPath.row = 0
-            }
-        } else {
-            nextIndexPath = IndexPath(row: indexPath.row - 1, section: 1)
-            if nextIndexPath.row == -1 {
-                nextIndexPath.row = tracks.count - 1
-           }
-        }
-        detailView.tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .middle)
+        let tracks = self.viewModel.tracks
+                var nextIndexPath: IndexPath!
+                if isForwardTrack {
+                    nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+                    if nextIndexPath.row == tracks.count {
+                        nextIndexPath.row = 0
+                    }
+                } else {
+                    nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+                    if nextIndexPath.row == -1 {
+                        nextIndexPath.row = tracks.count - 1
+                    }
+                }
+        
+        self.detailView.tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .middle)
         let track = tracks[nextIndexPath.row]
         return track
-    
-     }
-
+    }
 }
 
 //MARK: TrackDelegate

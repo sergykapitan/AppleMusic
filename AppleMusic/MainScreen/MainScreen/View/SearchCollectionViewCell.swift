@@ -12,18 +12,15 @@ import SDWebImage
 final class SearchCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Properties
-  //  static let identifier = "AlbumCollectionCell"
     
     var album: Album! {
         didSet {
             albumNameLabel.text = album.title
-            album.getImage { [weak self] img in
-                self?.photoImage.image = img
-            }
+            guard let url = URL(string: "\(album.image)") else { return }
+            photoImage.sd_setImage(with: url, completed: nil)
         }
     }
-    
-    
+        
     //MARK: - UI
     private let photoImage: UIImageView = {
         let imageView = UIImageView()
@@ -72,7 +69,6 @@ final class SearchCollectionViewCell: UICollectionViewCell {
     private func initUI() {
         clipsToBounds = true
         backgroundColor = UIColor(red: 198/255, green: 198/255, blue: 198/255, alpha: 1)
-       // backgroundColor = .black
         contentView.addSubview(photoImage)
         contentView.addSubview(artistNameLabel)
         contentView.addSubview(albumNameLabel)

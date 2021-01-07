@@ -33,11 +33,7 @@ extension DetailViewController: UITableViewDataSource {
             let track = viewModel.tracks[indexPath.row]
             cell.track = track
             detailView.track = track
-            
             return cell
         }
-       
     }
-    
-    
 }

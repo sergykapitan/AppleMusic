@@ -24,4 +24,15 @@ extension HistoryViewController: UITableViewDelegate {
         tabBarController?.selectedIndex = 0
  
     }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+       
+        let his = history[indexPath.row]
+       let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
+
+            self.viewModel.delete(text: his)        
+       }
+       let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+
+       return swipeActions
+   }
 }

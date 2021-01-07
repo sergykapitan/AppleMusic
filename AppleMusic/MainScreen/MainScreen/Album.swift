@@ -2,7 +2,7 @@
 //  Album.swift
 //  AppleMusic
 //
-//  Created by Sergey on 03.01.2021.
+//  Created by Sergey on 24.12.2020.
 //
 
 import UIKit
@@ -39,13 +39,13 @@ class Album: Decodable {
         case copyright, releaseDate, trackCount
     }
     
-    func getImage(completion: @escaping (UIImage?) -> Void) {
-        cache.downloadFrom(endpoint: image) { dat in
-            if let data = dat {
-                DispatchQueue.main.async {
-                    completion(UIImage(data: data))
-                }
-            }
-        }
-    }    
+//    func getImage(completion: @escaping (UIImage?) -> Void) {
+//        cache.downloadFrom(endpoint: image) { dat in
+//            if let data = dat {
+//                DispatchQueue.main.async {
+//                    completion(UIImage(data: data))
+//                }
+//            }
+//        }
+//    }    
 }

@@ -2,7 +2,7 @@
 //  CoreManager.swift
 //  AppleMusic
 //
-//  Created by Sergey on 03.01.2021.
+//  Created by Sergey on 24.12.2020.
 //
 
 import Foundation
@@ -46,10 +46,12 @@ final class CoreManager {
     }
 
     //MARK: Delete
-    func delete(_ track: Track) {
+    
+    func deleteText(_ text: History) {
     
         let fetchRequest = NSFetchRequest<CoreTrack>(entityName: "CoreTrack")
-        let predicate = NSPredicate(format: "id==%@", track.id)
+        let predicate = NSPredicate(format: "id==%@", text.searchText!)
+        
         print("delete line 3")
         fetchRequest.predicate = predicate
         
@@ -68,7 +70,7 @@ final class CoreManager {
         
         saveContext()
     }
-    
+
     //MARK: Load
     func history() -> [History] {
         

@@ -2,7 +2,7 @@
 //  TrackTableViewCell.swift
 //  AppleMusic
 //
-//  Created by Sergey on 03.01.2021.
+//  Created by Sergey on 24.12.2020.
 //
 
 import UIKit
@@ -24,6 +24,11 @@ class TrackTableViewCell: UITableViewCell {
     var track: Track! {
         didSet {
             titleLabel.text = track.name
+            guard let price = track.price else { return }
+            button.setTitle("\(price)$", for: .normal)
+            button.setTitleColor(.systemBlue, for: .normal)
+            button.titleLabel?.font =  UIFont.systemFont(ofSize: 10)
+
         }
     }
  

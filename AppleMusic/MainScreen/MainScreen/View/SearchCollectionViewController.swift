@@ -20,8 +20,6 @@ class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
-   // var name = [NSManagedObject]()
-    
     let searchView = SearchViewCode()
     let viewModel = ViewModel()
     
@@ -90,7 +88,8 @@ extension SearchCollectionViewController {
     guard let searchText = searchBar.text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
     
         viewModel.get(search: searchText)
-        CoreManager.shared.save(History(searchText: searchText))
+        viewModel.save(text: History(searchText: searchText))
+     //   CoreManager.shared.save(History(searchText: searchText))
         
         navigationItem.searchController?.isActive = false
         

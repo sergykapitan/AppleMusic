@@ -2,7 +2,7 @@
 //  DetailTableViewCell.swift
 //  AppleMusic
 //
-//  Created by Sergey on 03.01.2021.
+// Created by Sergey on 24.12.2020.
 //
 
 import UIKit
@@ -10,17 +10,15 @@ import UIKit
 class DetailTableViewCell: UITableViewCell {
     
     static let identifier = "DetailTableViewCell"
-    
     var titleLabel: UILabel =  {
         let label = UILabel()
         return label
     }()
-    let detailView = DetailViewCode()
-    
+        
     var album: Album! {
         didSet {
-           // let price = album.price ?? 0.00
-            titleLabel.text = album.artist
+            let price = album.price ?? 0.00
+            titleLabel.text = album.artist + " " + "\(price)"
 
         }
     }
