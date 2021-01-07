@@ -18,18 +18,19 @@ extension HistoryViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let navVC = tabBarController?.viewControllers![0] as! UINavigationController
-        let cartTableViewController = navVC.topViewController as! SearchCollectionViewController
-        let searchText: String = history[indexPath.row].searchText!
-        cartTableViewController.makeReguest(searchText: searchText)
+        let searchCollViewController = navVC.topViewController as! SearchCollectionViewController
+        let searchText: String = viewModel.shared()[indexPath.row].searchText!
+        searchCollViewController.makeReguest(searchText: searchText)
         tabBarController?.selectedIndex = 0
  
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
        
-        let his = history[indexPath.row]
-       let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
+        let his = viewModel.shared()[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
 
-            self.viewModel.delete(text: his)        
+            self.viewModel.delete(text: his)
+            tableView.reloadData()
        }
        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
 

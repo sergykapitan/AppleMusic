@@ -37,6 +37,10 @@ class ViewModel {
         CoreManager.shared.save(text)
         delegate?.update()
     }
+    func shared () -> ([History]) {
+        let history = CoreManager.shared.history()
+        return history
+    }
     
     var tracks = [Track]() {
         didSet {
