@@ -12,7 +12,7 @@ class HistoryViewController: UIViewController {
   
     let historyView = HistoryViewCode()
     let viewModel = ViewModel()
-    var history = [History]()
+
     
     
     //MARK - LifeCicle
@@ -27,7 +27,6 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         makeTableView()
-       // viewModel.delegate = self
   
     }
     
@@ -38,11 +37,4 @@ class HistoryViewController: UIViewController {
     }
 
 }
-////MARK: TrackDelegate
-//extension HistoryViewController: TrackDelegate {
-//    func update() {
-//        DispatchQueue.main.async {
-//            self.historyView.tableView.reloadData()
-//        }
-//    }
-//}
+

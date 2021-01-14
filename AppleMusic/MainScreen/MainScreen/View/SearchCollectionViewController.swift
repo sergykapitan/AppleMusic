@@ -13,8 +13,6 @@ import CoreData
 class SearchCollectionViewController: UIViewController, UISearchBarDelegate {
     
     
-    var history = [CoreTrack]()
-    
     var isSearchBarEmpty: Bool {
         navigationItem.searchController = searchController
         return searchController.searchBar.text?.isEmpty ?? true
@@ -89,7 +87,6 @@ extension SearchCollectionViewController {
     
         viewModel.get(search: searchText)
         viewModel.save(text: History(searchText: searchText))
-     //   CoreManager.shared.save(History(searchText: searchText))
         
         navigationItem.searchController?.isActive = false
         

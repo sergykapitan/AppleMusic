@@ -25,7 +25,7 @@ final class HistoryViewCode: UIView {
         return table
     }()
 
-    //MARK - initial
+    //MARK: - initial
     
     override init(frame: CGRect) {
         super.init(frame: frame)

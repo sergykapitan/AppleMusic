@@ -31,14 +31,14 @@ class Track: Decodable {
         case id = "trackId"
     }
     
-    init(from core: CoreTrack) {
-        self.id = Int(core.id)
-        self.name = core.name
-        self.url = core.url
-        self.image = core.image!
-        self.price = core.price
-        self.releaseDate = core.releaseDate!
-        self.duration = Int(core.duration)
-    }
+//   init(from core: CoreTrack) {
+//        self.id = Int(core.id)
+//        self.name = core.name
+//        self.url = core.url
+//        self.image = core.image!
+//        self.price = core.price
+//        self.releaseDate = core.releaseDate!
+//        self.duration = Int(core.duration)
+//    }
     
 }

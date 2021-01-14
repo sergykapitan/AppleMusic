@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct History {
+struct History {    
     let searchText: String?
 }

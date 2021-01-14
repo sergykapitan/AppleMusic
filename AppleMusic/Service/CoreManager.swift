@@ -8,8 +8,6 @@
 import Foundation
 import CoreData
 
-let core = CoreManager.shared
-
 final class CoreManager {
     
     static let shared = CoreManager()

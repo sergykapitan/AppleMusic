@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 protocol TrackDelegate: class {
     func update()
 }
@@ -24,9 +25,19 @@ class ViewModel {
     var albums = [Album]() {
         didSet {
             let userInfo: [String:ViewModel] = ["ViewModel":self]
+            
             NotificationCenter.default.post(name: Notification.Name.AlbumNotification, object: nil, userInfo: userInfo)
         }
     }
+    
+    var tracks = [Track]() {
+            didSet {
+                delegate?.update()
+                
+            }
+        }
+    
+    
     var lastRequestName : String = "lil+wayne"
     
     func delete(text: History) {
@@ -42,12 +53,7 @@ class ViewModel {
         return history
     }
     
-    var tracks = [Track]() {
-        didSet {
-            delegate?.update()
-            
-        }
-    }
+    
     
     var currentAlbum: Album! {
         didSet {

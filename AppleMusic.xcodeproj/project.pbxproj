@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8C31885525A368020076A30D /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31885425A368020076A30D /* History.swift */; };
-		8C4874C725A21A7F00F47368 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C625A21A7F00F47368 /* Artist.swift */; };
 		8C4874CA25A21AA100F47368 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874C925A21AA100F47368 /* Album.swift */; };
 		8C4874D625A2307500F47368 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874D525A2307500F47368 /* Track.swift */; };
 		8C4874D925A2310400F47368 /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4874D825A2310400F47368 /* CoreManager.swift */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		8C31885425A368020076A30D /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		8C4874C625A21A7F00F47368 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		8C4874C925A21AA100F47368 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8C4874D525A2307500F47368 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		8C4874D825A2310400F47368 /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 		8C551A5C2593CD7400B84C69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8C4874C625A21A7F00F47368 /* Artist.swift */,
 				8C4874C925A21AA100F47368 /* Album.swift */,
 				8C4874D525A2307500F47368 /* Track.swift */,
 				8C31885425A368020076A30D /* History.swift */,
@@ -454,7 +451,6 @@
 				8CBA08C7259C730F00DA84B1 /* ExTableView.swift in Sources */,
 				8CD944B8259BC3CB00344857 /* CMTime + Extention.swift in Sources */,
 				8C48751225A333E000F47368 /* MainViewModel.swift in Sources */,
-				8C4874C725A21A7F00F47368 /* Artist.swift in Sources */,
 				8C4874E225A2318900F47368 /* ItunesService.swift in Sources */,
 				8C48751E25A3340F00F47368 /* ExDataSource.swift in Sources */,
 				8C551A2D2593974D00B84C69 /* SceneDelegate.swift in Sources */,
@@ -527,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -582,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
